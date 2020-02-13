@@ -1,41 +1,44 @@
 
 from sqlalchemy import func
 
-from model_project import SoftStory, connect_to_db, db
+from model import Building, SoftStory, TallBuilding, connect_to_db, db
 
 from server import app
 
-def load_buildings(soft_filename, tall_filename):
-    """Load users from u.user into database."""
-   print("Buildings")
+import csv
 
 
-    for i, row in enumerate(open(soft_filename)):
-        row = row.rstrip()
-        property_address, status = row.split(",")
+# def load_buildings(soft_filename, tall_filename):
+#     """Load IDs and addresses from both files into database."""
+#     # print("Buildings")
 
 
-        building= Building(property_address= address)
+#     # for i, row in enumerate(open(soft_filename)):
+#     #     row = row.rstrip()
+#     #     property_address, status = row.split(",")
 
 
-        db.session.add(building)
-
-         if i % 100 == 0:
-            print(i)
-
-    for i, row in enumerate(open(tall_filename)):
-        row = row.rstrip()
-        name, address, at_risk, liquefaction = row.split(",")
-
-        building= Building(property_address= address)
+#     #     building = Building(property_address=address)
 
 
-        db.session.add(building)
+#     #     db.session.add(building)
 
-         if i % 100 == 0:
-            print(i)
-    # Once we're done, we should commit our work
-    db.session.commit()
+#     #     if i % 100 == 0:
+#     #         print(i)
+
+#     for i, row in enumerate(open(tall_filename)):
+#         row = row.rstrip()
+#         name, address, at_risk, liquefaction = row.split(",")
+
+#         building = Building(address=address)
+
+
+#         db.session.add(building)
+
+#         if i % 100 == 0:
+#             print(i)
+#     # Once we're done, we should commit our work
+#     db.session.commit()
 
 
 def load_soft_story_status(soft_filename):
@@ -43,14 +46,20 @@ def load_soft_story_status(soft_filename):
 
     print("Soft-Story Buildings")
 
-    for i, row in enumerate(open(soft_filename)):
-        row = row.rstrip()
-        property_address, status = row.split(",")
+    with open(soft_filename) as csvfile:
+        data = csv.reader(csvfile)
 
-        soft_story = SoftStory(status=status)
+        for row in data:
+            address, status = row
 
-        # We need to add to the session or it won't ever be stored
-        db.session.add(soft_story)
+            soft_story = SoftStory(status=status)
+            building = Building(address=address)
+            soft_story.building = building
+
+
+            # We need to add to the session or it won't ever be stored
+            db.session.add(soft_story)
+            print(soft_story)
 
     # Once we're done, we should commit our work
     db.session.commit()
@@ -60,11 +69,18 @@ def load_tall_building(tall_filename):
 
     print("Tall Buildings")
 
+    with open(soft_filename) as csvfile:
+        data = csv.reader(csvfile)
+
     for i, row in enumerate(open(tall_filename)):
         row = row.rstrip()
         name, address, at_risk, liquefaction = row.split(",")
 
+        at_risk = at_risk == "yes"
+        
         tall_building = TallBuilding(name=name, liquefaction=liquefaction, at_risk = at_risk)
+        building = Building(address=address)
+        tall_building.building = building
 
         # We need to add to the session or it won't ever be stored
         db.session.add(tall_building)
@@ -74,26 +90,13 @@ def load_tall_building(tall_filename):
 
 
 
-# def set_val_user_id():
-#     """Set value for the next user_id after seeding database"""
-
-#     # Get the Max user_id in the database
-#     result = db.session.query(func.max(User.user_id)).one()
-#     max_id = int(result[0])
-
-#     # Set the value for the next user_id to be max_id + 1
-#     query = "SELECT setval('users_user_id_seq', :new_id)"
-#     db.session.execute(query, {'new_id': max_id + 1})
-#     db.session.commit()
-
-
 if __name__ == "__main__":
     connect_to_db(app)
     db.create_all()
 
     soft_filename = "seed_data/Soft-Story_Properties_clean.csv"
     tall_filename = "seed_data/Tall_Building_Inventory_clean.csv"
-    load_buildings(soft_filename, tall_filename)
-    load_soft_story_status(soft_filename)
+    
+    # load_soft_story_status(soft_filename)
     load_tall_building(tall_filename)
-    # set_val_user_id()
+   

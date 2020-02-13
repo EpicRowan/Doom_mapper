@@ -51,7 +51,7 @@ class SoftStory(db.Model):
     def __repr__(self):
         """Provide helpful representation when printed."""
 
-        return f"<Building ID={self.building_id} Status={self.status}>"
+        return f"<Soft Story Id={self.ss_id} Status={self.status}>"
 
 class TallBuilding(db.Model):
     """Status of retrofitted or non-compliant."""
@@ -65,6 +65,8 @@ class TallBuilding(db.Model):
     building_id = db.Column(db.Integer,
                         db.ForeignKey("buildings.building_id"),
                         unique=True)
+    name = db.Column(db.String(64), nullable=True)
+
     liquefaction = db.Column(db.String(64), nullable=True)
 
     at_risk = db.Column(db.Boolean(), nullable=True)
@@ -75,7 +77,7 @@ class TallBuilding(db.Model):
     def __repr__(self):
         """Provide helpful representation when printed."""
 
-        return f"<Building ID={self.building_id} Liquefaction={self.liquefaction}>"
+        return f"<Tall Building ID={self.tall_id} Liquefaction={self.liquefaction}>"
 
 
 

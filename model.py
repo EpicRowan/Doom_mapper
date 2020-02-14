@@ -56,7 +56,7 @@ class SoftStory(db.Model):
 class TallBuilding(db.Model):
     """Status of retrofitted or non-compliant."""
 
-    __tablename__ = "tallbuilings"
+    __tablename__ = "tallbuildings"
 
     tall_id = db.Column(db.Integer, 
                         autoincrement=True,
@@ -65,13 +65,14 @@ class TallBuilding(db.Model):
     building_id = db.Column(db.Integer,
                         db.ForeignKey("buildings.building_id"),
                         unique=True)
+
     name = db.Column(db.String(64), nullable=True)
 
     liquefaction = db.Column(db.String(64), nullable=True)
 
     at_risk = db.Column(db.Boolean(), nullable=True)
 
-    building = db.relationship( 'Building', backref=db.backref('tallbuilding', uselist=False))
+    building = db.relationship('Building', backref=db.backref('tallbuilding', uselist=False))
     
 
     def __repr__(self):

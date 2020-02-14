@@ -69,7 +69,7 @@ def load_tall_building(tall_filename):
 
     print("Tall Buildings")
 
-    with open(soft_filename) as csvfile:
+    with open(tall_filename) as csvfile:
         data = csv.reader(csvfile)
 
     for i, row in enumerate(open(tall_filename)):
@@ -77,8 +77,8 @@ def load_tall_building(tall_filename):
         name, address, at_risk, liquefaction = row.split(",")
 
         at_risk = at_risk == "yes"
-        
-        tall_building = TallBuilding(name=name, liquefaction=liquefaction, at_risk = at_risk)
+
+        tall_building = TallBuilding(name=name, at_risk = at_risk, liquefaction=liquefaction)
         building = Building(address=address)
         tall_building.building = building
 
@@ -97,6 +97,6 @@ if __name__ == "__main__":
     soft_filename = "seed_data/Soft-Story_Properties_clean.csv"
     tall_filename = "seed_data/Tall_Building_Inventory_clean.csv"
     
-    # load_soft_story_status(soft_filename)
+    load_soft_story_status(soft_filename)
     load_tall_building(tall_filename)
    

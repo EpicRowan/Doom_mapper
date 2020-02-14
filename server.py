@@ -1,12 +1,13 @@
 
 
 from jinja2 import StrictUndefined
+from sqlalchemy import func
 
 from flask import Flask, render_template, request, flash, redirect, session
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
-
+from functions import doom_score_tall,  doom_score_soft
 
 app = Flask(__name__)
 
@@ -15,7 +16,8 @@ app.secret_key = "ABC"
 
 # # Normally, if you use an undefined variable in Jinja2, it fails silently.
 # # This is horrible. Fix this so that, instead, it raises an error.
-# app.jinja_env.undefined = StrictUndefined
+
+app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/')
@@ -28,22 +30,35 @@ def home():
 @app.route("/search")
 def search_results():
 
+	
 	searched = request.args.get("entered_address")
-	find_building = Building.query.filter(Building.address == searched).first()
 
-	print(find_building)
+	find_building = Building.query.filter(Building.address.ilike (searched + "%")).first()
 
-	# if find_building.tallbuilding == None:
 
-	# 	return render_template("not_found_results.html")
+
+	if find_building == None:
+
+		return render_template("not_found_results.html")
 
 	if find_building.tallbuilding:
 
-		return render_template("tallbuilding_results.html")
+		liquefaction = find_building.tallbuilding.liquefaction
+
+		at_risk = find_building.tallbuilding.at_risk
+
+		score = doom_score_tall(liquefaction)
+
+
+		return render_template("tallbuilding_results.html", liquefaction=liquefaction, at_risk=at_risk, score=score)
 
 	elif find_building.softstory:
-		
-		return render_template("softstory_results.html")
+
+		status = find_building.softstory.status
+
+		score =  doom_score_soft(at_risk)
+	
+		return render_template("softstory_results.html", status=status, score=score)
 
 	else:
 

@@ -47,7 +47,7 @@ def search_results():
 
 		at_risk = find_building.tallbuilding.at_risk
 
-		score = doom_score_tall(liquefaction)
+		score = doom_score_tall(liquefaction, at_risk)
 
 
 		return render_template("tallbuilding_results.html", liquefaction=liquefaction, at_risk=at_risk, score=score)
@@ -56,7 +56,7 @@ def search_results():
 
 		status = find_building.softstory.status
 
-		score =  doom_score_soft(at_risk)
+		score = doom_score_soft(status)
 	
 		return render_template("softstory_results.html", status=status, score=score)
 
@@ -65,8 +65,17 @@ def search_results():
 		return render_template("not_found_results.html")
 
 
-    # building = Building.query.get(building_id)
-    # return render_template("search_results.html", building=building)
+@app.route("/map")
+def view_basic_map():
+    """Demo of basic map-related code.
+
+    - Programmatically adding markers, info windows, and event handlers to a
+      Google Map
+    - Showing polylines, directions, etc.
+    - Geolocation with HTML5 navigator.geolocate API
+    """
+
+    return render_template("map.html")
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

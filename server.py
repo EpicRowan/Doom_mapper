@@ -76,18 +76,23 @@ def search_results():
 
 		return render_template("not_found_results.html")
 
+# @app.route("/api/buildings")
+# def building_info():
+#     """JSON information about talls."""
 
-# @app.route("/map")
-# def view_basic_map():
-#     """Demo of basic map-related code.
+#     buildings = [
+#         {
+#             "id": tallbuildings.building_id,
+#             "name": tallbuildings.name,
+#             "liquefaction": tallbuildings.liquefaction,
+#             "at_risk": tallbuildings.at_risk
+            
 
-#     - Programmatically adding markers, info windows, and event handlers to a
-#       Google Map
-#     - Showing polylines, directions, etc.
-#     - Geolocation with HTML5 navigator.geolocate API
-#     """
+#         }
+#         for building in tallbuildings.query
+#     ]
 
-#     return render_template("map.html")
+#     return jsonify(buildings)
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

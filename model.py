@@ -14,7 +14,7 @@ db = SQLAlchemy()
 # Model definitions
 
 class Building(db.Model):
-    """Status of retrofitted or non-compliant."""
+    """Main building data table of all known buildings."""
 
     __tablename__ = "buildings"
 
@@ -31,7 +31,7 @@ class Building(db.Model):
         return f"<Building ID={self.building_id} Address={self.address}>"
 
 class SoftStory(db.Model):
-    """Status of retrofitted or non-compliant."""
+    """Status of retrofitted or non-compliant for soft story buildings."""
 
     __tablename__ = "softstories"
 
@@ -54,7 +54,7 @@ class SoftStory(db.Model):
         return f"<Soft Story Id={self.ss_id} Status={self.status}>"
 
 class TallBuilding(db.Model):
-    """Status of retrofitted or non-compliant."""
+    """Info about the liquefaction and construction risks of tall builgins in SF."""
 
     __tablename__ = "tallbuildings"
 

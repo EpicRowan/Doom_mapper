@@ -42,7 +42,7 @@ import csv
 
 
 def load_soft_story_status(soft_filename):
-    """Load users from u.user into database."""
+    """Load buildings from soft story csv into database."""
 
     print("Soft-Story Buildings")
 
@@ -65,7 +65,8 @@ def load_soft_story_status(soft_filename):
     db.session.commit()
 
 def load_tall_building(tall_filename):
-    """Load users from u.user into database."""
+
+    """Load buildings from tall buildings csv into database."""
 
     print("Tall Buildings")
 
@@ -94,8 +95,12 @@ if __name__ == "__main__":
     connect_to_db(app)
     db.create_all()
 
+    #csv file names and locations
+
     soft_filename = "seed_data/Soft-Story_Properties_clean.csv"
     tall_filename = "seed_data/Tall_Building_Inventory_clean.csv"
+    
+    #function calls
     
     load_soft_story_status(soft_filename)
     load_tall_building(tall_filename)

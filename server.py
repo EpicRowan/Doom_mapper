@@ -1,7 +1,7 @@
 
 
 from jinja2 import StrictUndefined
-from sqlalchemy import func
+from sqlalchemy import func, or_
 
 from flask import Flask, render_template, request, flash, redirect, session
 from flask_debugtoolbar import DebugToolbarExtension
@@ -22,7 +22,7 @@ app.jinja_env.undefined = StrictUndefined
 
 @app.route('/')
 def home():
-    """Homepage."""
+    """Homepage and main Google Map with clickable markers on map"""
 
     return render_template("homepage.html")
 
@@ -30,16 +30,24 @@ def home():
 @app.route("/search")
 def search_results():
 
+	'''Search for an address that is in the database as either a softstory or tall building in San Francisco and retrieve the data''' 
 	
 	searched = request.args.get("entered_address")
 
-	find_building = Building.query.filter(Building.address.ilike (searched + "%")).first()
+	#Makes the search case insenstitive 
+
+	find_building = Building.query.filter(Building.address.ilike (searched + "%"),).first()
 
 
+
+	#if there is no record in the database, return the Not Found page
 
 	if find_building == None:
 
 		return render_template("not_found_results.html")
+
+
+	#if it is in the tall buildings csv file
 
 	if find_building.tallbuilding:
 
@@ -52,6 +60,8 @@ def search_results():
 
 		return render_template("tallbuilding_results.html", liquefaction=liquefaction, at_risk=at_risk, score=score)
 
+	#if it is in the soft story buildings csv file
+
 	elif find_building.softstory:
 
 		status = find_building.softstory.status
@@ -60,22 +70,24 @@ def search_results():
 	
 		return render_template("softstory_results.html", status=status, score=score)
 
+	#catch all for other situations
+
 	else:
 
 		return render_template("not_found_results.html")
 
 
-@app.route("/map")
-def view_basic_map():
-    """Demo of basic map-related code.
+# @app.route("/map")
+# def view_basic_map():
+#     """Demo of basic map-related code.
 
-    - Programmatically adding markers, info windows, and event handlers to a
-      Google Map
-    - Showing polylines, directions, etc.
-    - Geolocation with HTML5 navigator.geolocate API
-    """
+#     - Programmatically adding markers, info windows, and event handlers to a
+#       Google Map
+#     - Showing polylines, directions, etc.
+#     - Geolocation with HTML5 navigator.geolocate API
+#     """
 
-    return render_template("map.html")
+#     return render_template("map.html")
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

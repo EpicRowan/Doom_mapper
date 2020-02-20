@@ -23,6 +23,10 @@ class Building(db.Model):
                         primary_key=True)
 
     address = db.Column(db.String(64), nullable=False)
+
+    latitude = db.Column(db.String(64), nullable=True)
+
+    longitude = db.Column(db.String(64), nullable=True)
     
 
     def __repr__(self):
@@ -54,7 +58,7 @@ class SoftStory(db.Model):
         return f"<Soft Story Id={self.ss_id} Status={self.status}>"
 
 class TallBuilding(db.Model):
-    """Info about the liquefaction and construction risks of tall builgins in SF."""
+    """Info about the liquefaction and construction risks of tall buildings in SF."""
 
     __tablename__ = "tallbuildings"
 

@@ -3,7 +3,7 @@
 from jinja2 import StrictUndefined
 from sqlalchemy import func, or_
 
-from flask import Flask, render_template, request, flash, redirect, session
+from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
@@ -20,11 +20,54 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
+###FIX ME###
 @app.route('/')
-def home():
+def view_home_map():
     """Homepage and main Google Map with clickable markers on map"""
 
     return render_template("homepage.html")
+
+
+# @app.route("/tallbuildings")
+# def tall_markers():
+#     """JSON information about talls."""
+
+##FIX ME###
+@app.route("/api/tallbuildings")
+def building_info():
+    """JSON information about buildings."""
+
+
+    tallbuildings = [
+        {
+            "id": tallbuilding.building_id,
+            "name": tallbuilding.name,
+            "liquefaction": tallbuilding.liquefaction,
+            "at_risk": tallbuilding.at_risk,
+            "latitude": tallbuilding.building.latitude,
+            "longitude": tallbuilding.building.longitude
+			
+            
+
+         }
+         for tallbuilding in TallBuilding.query.all()
+     ]
+     # tallbuildings = []
+
+
+     # for tallbuilding in TallBuilding.query.all():
+     # 	tallbuildings.append({
+     #        "id": tallbuilding.building_id,
+     #        "name": tallbuilding.name,
+     #        "liquefaction": tallbuilding.liquefaction,
+     #        "at_risk": tallbuilding.at_risk,
+     #        "latitude": tallbuilding.latitude,
+     #        "longitude": tallbuilding.longitude
+			
+
+     #     })
+
+    return jsonify(tallbuildings)
 
 
 @app.route("/search")
@@ -76,23 +119,7 @@ def search_results():
 
 		return render_template("not_found_results.html")
 
-# @app.route("/api/buildings")
-# def building_info():
-#     """JSON information about talls."""
 
-#     buildings = [
-#         {
-#             "id": tallbuildings.building_id,
-#             "name": tallbuildings.name,
-#             "liquefaction": tallbuildings.liquefaction,
-#             "at_risk": tallbuildings.at_risk
-            
-
-#         }
-#         for building in tallbuildings.query
-#     ]
-
-#     return jsonify(buildings)
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

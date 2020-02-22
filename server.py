@@ -20,7 +20,7 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-###FIX ME###
+
 @app.route('/')
 def view_home_map():
     """Homepage and main Google Map with clickable markers on map"""
@@ -28,11 +28,6 @@ def view_home_map():
     return render_template("homepage.html")
 
 
-# @app.route("/tallbuildings")
-# def tall_markers():
-#     """JSON information about talls."""
-
-##FIX ME###
 @app.route("/api/tallbuildings")
 def building_info():
     """JSON information about buildings."""
@@ -52,22 +47,28 @@ def building_info():
          }
          for tallbuilding in TallBuilding.query.all()
      ]
-     # tallbuildings = []
-
-
-     # for tallbuilding in TallBuilding.query.all():
-     # 	tallbuildings.append({
-     #        "id": tallbuilding.building_id,
-     #        "name": tallbuilding.name,
-     #        "liquefaction": tallbuilding.liquefaction,
-     #        "at_risk": tallbuilding.at_risk,
-     #        "latitude": tallbuilding.latitude,
-     #        "longitude": tallbuilding.longitude
-			
-
-     #     })
 
     return jsonify(tallbuildings)
+
+@app.route("/api/softbuildings")
+def softstory_info():
+    """JSON information about buildings."""
+
+
+    softbuildings = [
+        {
+            "id": softstory.building_id,
+            "status": softstory.status,
+            "address": softstory.building.address,
+            "latitude": softstory.building.latitude,
+            "longitude": softstory.building.longitude
+            
+
+         }
+         for softstory in SoftStory.query.limit(30)
+     ]
+
+    return jsonify(softbuildings)
 
 
 @app.route("/search")

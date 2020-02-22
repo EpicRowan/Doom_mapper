@@ -25,7 +25,7 @@ def load_soft_story_status(soft_filename):
             address, status, latitude, longitude = row
 
             soft_story = SoftStory(status=status)
-            building = Building(address=address, latitude=latitude, longitude=longitude)
+            building = Building(address=address, latitude=float(latitude), longitude=float(longitude))
             soft_story.building = building
 
 
@@ -57,8 +57,8 @@ def load_tall_building(tall_filename):
         if location == None:
             continue
 
-        latitude = location.latitude
-        longitude = location.longitude
+        latitude = float(location.latitude)
+        longitude = float(location.longitude)
 
         print(latitude)
         print(longitude)

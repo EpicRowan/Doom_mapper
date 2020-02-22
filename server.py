@@ -88,6 +88,7 @@ def search_results():
 
 	if find_building == None:
 
+    
 		return render_template("not_found_results.html")
 
 

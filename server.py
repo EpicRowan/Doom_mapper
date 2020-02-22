@@ -41,7 +41,7 @@ def building_info():
             "at_risk": tallbuilding.at_risk,
             "latitude": tallbuilding.building.latitude,
             "longitude": tallbuilding.building.longitude
-			
+			#"address": softstory.building.address,
             
 
          }
@@ -65,7 +65,7 @@ def softstory_info():
             
 
          }
-         for softstory in SoftStory.query.limit(30)
+         for softstory in SoftStory.query.all()
      ]
 
     return jsonify(softbuildings)

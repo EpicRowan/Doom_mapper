@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	
+    <title>Doom Mapper</title>
+    
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<hr>
+
+{% for flash in get_flashed_messages() %}
+  {{ flash }}
+{% endfor %}
+
+{% block content %}
+Placeholder
+{% endblock %}
+
+</body>
+</html>

@@ -120,13 +120,18 @@ var markerGroups = {
           lng: parseFloat(tall.longitude)
         },
         title: `${tall.name}`,
-        type: "tall"
+        type: "tall",
+        url: 'http://localhost:5000/search',
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/WhiteDot.svg',
           scaledSize: new google.maps.Size(10, 10)
         },
         map: map,
       });
+
+      google.maps.event.addListener(tallMarker, 'click', function() {
+      window.location.href = this.url;
+    });
 
 
     }
@@ -152,6 +157,22 @@ var markerGroups = {
     }
   })
 
+
+
+//  function toggleGroup(type) {
+//     for (var overlay) {
+//         if (!marker.getVisible()) {
+//             marker.setVisible(true);
+//         } else {
+//             marker.setVisible(false);
+//         }
+//     }
+// }
+
+    // if (!markerGroups[type]) markerGroups[type] = [];
+    // markerGroups[type].push(marker);
+
+
 // function check() {
 //   $('input[type="checkbox"]').prop("checked", true).change();
 // }
@@ -160,22 +181,12 @@ var markerGroups = {
 //   $('input[type="checkbox"]').prop("checked", false).change();
 // }
 
- //    $('#show_ss').change(function() {       
+
+
+ // $('#show_ss').change(function() {       
  //     softMarker.setVisible($(this).is(":checked"));               
  // });
 
-
-
-
-//     function toggleGroup(type) {
-//     for (var i = 0; i < markerGroups[type].length; i++) {
-//         var marker = markerGroups[type][i];
-//         if (!marker.getVisible()) {
-//             marker.setVisible(true);
-//         } else {
-//             marker.setVisible(false);
-//         }
-//     }
 
 
   }

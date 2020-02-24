@@ -121,13 +121,16 @@ var markerGroups = {
         },
         title: `${tall.name}`,
         type: "tall",
-        url: 'http://localhost:5000/search',
+        // url: 'http://localhost:5000/search',
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/WhiteDot.svg',
           scaledSize: new google.maps.Size(10, 10)
         },
         map: map,
       });
+
+      markerGroups["tall"].push(tallMarker);
+
 
       google.maps.event.addListener(tallMarker, 'click', function() {
       window.location.href = this.url;
@@ -137,8 +140,10 @@ var markerGroups = {
     }
   })
 
+  console.log(markerGroups["tall"])
+
     $.get("/api/softbuildings", (softbuildings) => {
-      console.log(softbuildings)
+      // console.log(softbuildings)
     for (const soft of softbuildings) {
 
       const softMarker = new google.maps.Marker({
@@ -159,18 +164,18 @@ var markerGroups = {
 
 
 
-//  function toggleGroup(type) {
-//     for (var overlay) {
-//         if (!marker.getVisible()) {
-//             marker.setVisible(true);
-//         } else {
-//             marker.setVisible(false);
-//         }
-//     }
-// }
+ function toggleGroup(type) {
+    for (const marker of markerGroups[type]) {
+        if (!marker.getVisible()) {
+            marker.setVisible(true);
+        } else {
+            marker.setVisible(false);
+        }
+    }
+}
 
-    // if (!markerGroups[type]) markerGroups[type] = [];
-    // markerGroups[type].push(marker);
+    if (!markerGroups[type]) markerGroups[type] = [];
+    markerGroups[type].push(marker);
 
 
 // function check() {

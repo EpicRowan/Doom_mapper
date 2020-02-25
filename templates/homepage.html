@@ -38,7 +38,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA&callback=initMap">
   </script>
   <div class="map_wrap">
-    <div class="siderbarmap"><
+    <div class="siderbarmap">
         <ul><form>
         	<center><div id="datacheckbox">
         	<label> Soft Story Buildings </label>
@@ -46,8 +46,10 @@
             <label> Tall Buildings </label>
             <input name="checkbox" id="tall" type="checkbox"  checked="checked"></input>
             <label> Liquefaction</label>
-            <input name="checkbox" id="liq" type="checkbox" checked="checked"></input></div></center>
-
+            <!-- <input name="checkbox" id="liq" type="checkbox" checked="checked"> -->
+            <input type="checkbox" id="show_hide_KML_Layer_01" onClick="toggleKml()">
+            	
+            </input></div></center>
           
     <!--       <center>
         	<label> Soft Story Buildings </label>

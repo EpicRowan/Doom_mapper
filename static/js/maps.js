@@ -97,6 +97,8 @@ var map;
     map: map
 
   }); 
+  // overlay.setMap(map);
+  
 
          // overlay.addListener('click', function(event)
 
@@ -173,7 +175,7 @@ console.log(markerGroups)
     }
   })
 
-
+document.getElementById('show_hide_KML_Layer_01').checked = true;
 
  function toggleGroup(type) {
     for (const marker of markerGroups[type]) {
@@ -190,12 +192,14 @@ dataLayerChoice.addEventListener("click", function (evt) {
   let elem = evt.target;
   if (elem.id === "tall" || elem.id === "soft") {
     toggleGroup(elem.id);
-  // else {
-  //    overlay.map(null);
+
+    
+  // else if (elem.id === "liq") {
+  //    overlay.setMap(map);
   // }
                
 // else
-//     overlay.setMap(null); 
+//     overlay.setMap(map); 
 
 }
 });
@@ -205,7 +209,7 @@ dataLayerChoice.addEventListener("click", function (evt) {
   }
     
   
-//   function toggleKMLLayer() {
+//   function toggleKml() {
 // let kml = document.getElementById('datacheckbox');
 // kml.addEventListener("click", function (evt) {
 //   let elem = evt.target;

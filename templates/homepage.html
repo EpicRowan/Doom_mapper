@@ -40,13 +40,21 @@
   <div class="map_wrap">
     <div class="siderbarmap"><
         <ul>
-        	<center>
+        	<center><div id="datacheckbox">
         	<label> Soft Story Buildings </label>
-            <input id="show_ss" type="checkbox" onclick="toggleGroup('softMarker')" checked="checked"></input>
+            <input name="checkbox" id="soft" type="checkbox" checked="checked"></input>
             <label> Tall Buildings </label>
-            <input id="show_tb" type="checkbox" onclick="toggleGroup('tall')" checked="checked"></input>
+            <input name="checkbox" id="tall" type="checkbox"  checked="checked"></input>
             <label> Liquefaction</label>
-            <input id="show_liq" type="checkbox" onclick="toggleGroup(overlay)" checked="checked"></input></center><
+            <input name="checkbox" id="liq" type="checkbox" checked="checked"></input></div></center>
+          
+    <!--       <center>
+        	<label> Soft Story Buildings </label>
+            <input name="checkbox" id="show_ss" type="checkbox" onclick="toggleGroup('softMarker')" checked="checked"></input>
+            <label> Tall Buildings </label>
+            <input name="checkbox" id="show_tb" type="checkbox" onclick="toggleGroup('tall')" checked="checked"></input>
+            <label> Liquefaction</label>
+            <input name="checkbox" id="show_liq" type="checkbox" onclick="toggleGroup(overlay)" checked="checked"></input></center> -->
           
         </ul>
     </div>

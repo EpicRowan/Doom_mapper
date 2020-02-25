@@ -91,7 +91,7 @@ var map;
             }
           ]
         });
-        var overlay = new google.maps.KmlLayer({ 
+        let overlay = new google.maps.KmlLayer({ 
     url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
     preserveViewport: false,
     map: map 
@@ -104,9 +104,9 @@ google.maps.event.addListenerOnce(map, 'zoom_changed', function() {
      
 var markerGroups = {
     "tall": [],
-        "monumentos": [],
-        "restaurantes": [],
-        "hotel": []
+        "soft": [],
+        "liq": [],
+        
 };
 
   $.get("/api/tallbuildings", (tallbuildings) => {
@@ -174,8 +174,16 @@ var markerGroups = {
     }
 }
 
-    if (!markerGroups[type]) markerGroups[type] = [];
-    markerGroups[type].push(marker);
+let dataLayerChoice = document.getElementById('datacheckbox');
+dataLayerChoice.addEventListener("click", function (evt) {
+  let elem = evt.target;
+  if (elem.name === "checkbox") {
+    toggleGroup(elem.id);
+}
+});
+
+    // if (!markerGroups[type]) markerGroups[type] = [];
+    // markerGroups[type].push(marker);
 
 
 // function check() {

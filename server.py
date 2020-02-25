@@ -70,6 +70,11 @@ def softstory_info():
 
     return jsonify(softbuildings)
 
+@app.route("/buildings/<int:building_id>")
+def display(building_id):
+    pass
+
+
 
 @app.route("/search")
 def search_results():
@@ -88,7 +93,7 @@ def search_results():
     #101 park street = fin
 
 	if find_building == None:
-        
+
         # words= find_building.split()  
         # new_find_building = ""
         # streets = {("street", "st.", "str"): "st", ("avenue", "av"): "av", ("boulevard", "bld"): "bl",\

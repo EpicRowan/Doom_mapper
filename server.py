@@ -91,9 +91,28 @@ def search_results():
 
 
 	#if there is no record in the database, return the Not Found page
-    #101 park street = fin
 
 	if find_building == None:
+        # words= find_building.split()
+        # new_find_building =""
+        # streets = {"street": "st", "st.": "st", "avenue": "av"}
+        # for word in words:
+        #     if word in streets:
+        #         new_find_building += streets[word] + " "
+        #     else:
+        #         new_find_building += word + " "
+
+        #         if new_find_building.softstory:
+
+        #             status = new_find_building.softstory.status
+
+        #             score = doom_score_soft(status)  
+
+        #             return render_template("softstory_results.html", status=status, score=score)
+
+
+
+
 
         # words= find_building.split()  
         # new_find_building = ""

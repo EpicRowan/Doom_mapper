@@ -1,14 +1,14 @@
 "use strict";
 
 
-// We use a function declaration for initMap because we actually *do* need
-// to rely on value-hoisting in this circumstance.
+// Initialize the map from the Google Maps API
 
 var map;
       function initMap() {
         map = new google.maps.Map
         (document.querySelector('#map'), {
           center: {lat: 37.773972, lng: -122.431297},
+          zoom: 13,
            styles:  [
             {elementType: 'geometry', stylers: [{color: "#212121"}]},
             {elementType: 'labels.text.stroke', stylers: [{color: "#212121"}]},
@@ -91,26 +91,28 @@ var map;
             }
           ]
         });
+
+// Add the liquefaction layer KML file on top of the initialized map
+
         let overlay = new google.maps.KmlLayer({ 
     url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
-    preserveViewport: false,
-    map: map
+    preserveViewport: true,
+    map: map,
 
-  }); 
-  // overlay.setMap(map);
-  
+  });   
 
-         // overlay.addListener('click', function(event)
-
-      // document.getElementById('liq').checked = true;
-     // markerGroups["liq"].push(overlay);
+// The KML layer resets the default zoom, so set the zoom again to 13 
 
 google.maps.event.addListenerOnce(map, 'zoom_changed', function() {
-    // set the zoom level to 13
     map.setZoom(13);
-    markerGroups["liq"].push(overlay);
+
+// Also add the KML layer to the liq markerGroup
+
+  // markerGroups["liq"].push(overlay);
+  
 });
-     
+
+// Set the categories of the different Marker types and KML layer     
 
 var markerGroups = {
     "tall": [],
@@ -121,10 +123,12 @@ var markerGroups = {
 
 console.log(markerGroups)
 
+
+// Create the tall building markers and populate the map with the markers
+
   $.get("/api/tallbuildings", (tallbuildings) => {
     
     for (const tall of tallbuildings) {
-  
       
       const tallMarker = new google.maps.Marker({
         position: {
@@ -152,6 +156,8 @@ console.log(markerGroups)
     }
   })
 
+  // Create the soft story building markers and populate the map with the markers
+
 
     $.get("/api/softbuildings", (softbuildings) => {
       // console.log(softbuildings)
@@ -175,7 +181,12 @@ console.log(markerGroups)
     }
   })
 
-document.getElementById('show_hide_KML_Layer_01').checked = true;
+  // Set the initial checkbox on the liquefaction layer to unchecked
+
+// document.getElementById('show_hide_KML_Layer_01').checked = false;
+
+
+  // Toggle the markers on and off depending on if the checkbox is checked or unchecked
 
  function toggleGroup(type) {
     for (const marker of markerGroups[type]) {
@@ -185,30 +196,43 @@ document.getElementById('show_hide_KML_Layer_01').checked = true;
             marker.setVisible(false);
         }
     }
-}
+}  
+function toggleKML() {
+        if (!document.getElementById('liq').checked) {
 
+          overlay.setMap(null); 
+                
+        } else {overlay.setMap(map);
+        }
+                
+}
 let dataLayerChoice = document.getElementById('datacheckbox');
 dataLayerChoice.addEventListener("click", function (evt) {
   let elem = evt.target;
   if (elem.id === "tall" || elem.id === "soft") {
     toggleGroup(elem.id);
-
+}  else if (elem.id === "liq") {
+    toggleKML()  
+  }
     
-  // else if (elem.id === "liq") {
-  //    overlay.setMap(map);
-  // }
+
                
 // else
 //     overlay.setMap(map); 
 
-}
+// }  else if (elem.id === "liq") {
+//      overlay.setMap(null);
+//   }
+         
+     
+
 });
 
-
-
-  }
+}
     
-  
+ 
+
+
 //   function toggleKml() {
 // let kml = document.getElementById('datacheckbox');
 // kml.addEventListener("click", function (evt) {
@@ -218,3 +242,26 @@ dataLayerChoice.addEventListener("click", function (evt) {
 //         else
 //                 overlay.setMap(map);
 
+
+
+
+
+// SIDELINES OF CODE
+
+  // overlay.setMap(map);
+  
+
+         // overlay.addListener('click', function(event)
+
+      // document.getElementById('liq').checked = true;
+
+       // markerGroups["liq"].push(overlay);
+
+// Add the liquefaction layer KML file on top of the initialized map
+
+  //       let overlay = new google.maps.KmlLayer({ 
+  //   url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
+  //   preserveViewport: false,
+  //   map: map,
+
+  // }); 

@@ -72,6 +72,7 @@ def softstory_info():
 
 @app.route("/buildings/<int:building_id>")
 def display(building_id):
+    return render_template("buildings.html")
     pass
 
 

@@ -94,20 +94,30 @@ var map;
         let overlay = new google.maps.KmlLayer({ 
     url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
     preserveViewport: false,
-    map: map 
+    map: map
+
   }); 
+
+         // overlay.addListener('click', function(event)
+
+      // document.getElementById('liq').checked = true;
+     // markerGroups["liq"].push(overlay);
 
 google.maps.event.addListenerOnce(map, 'zoom_changed', function() {
     // set the zoom level to 13
     map.setZoom(13);
+    markerGroups["liq"].push(overlay);
 });
      
+
 var markerGroups = {
     "tall": [],
         "soft": [],
         "liq": [],
         
 };
+
+console.log(markerGroups)
 
   $.get("/api/tallbuildings", (tallbuildings) => {
     
@@ -121,7 +131,7 @@ var markerGroups = {
         },
         title: `${tall.name}`,
         type: "tall",
-        // url: 'http://localhost:5000/search',
+        url: 'http://localhost:5000/buildings/<tall.building_id>',
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/WhiteDot.svg',
           scaledSize: new google.maps.Size(10, 10)
@@ -140,7 +150,6 @@ var markerGroups = {
     }
   })
 
-  console.log(markerGroups["tall"])
 
     $.get("/api/softbuildings", (softbuildings) => {
       // console.log(softbuildings)
@@ -158,6 +167,8 @@ var markerGroups = {
         },
         map: map,
       });
+
+       markerGroups["soft"].push(softMarker);
 
     }
   })
@@ -177,32 +188,29 @@ var markerGroups = {
 let dataLayerChoice = document.getElementById('datacheckbox');
 dataLayerChoice.addEventListener("click", function (evt) {
   let elem = evt.target;
-  if (elem.name === "checkbox") {
+  if (elem.id === "tall" || elem.id === "soft") {
     toggleGroup(elem.id);
+  // else {
+  //    overlay.map(null);
+  // }
+               
+// else
+//     overlay.setMap(null); 
+
 }
 });
-
-    // if (!markerGroups[type]) markerGroups[type] = [];
-    // markerGroups[type].push(marker);
-
-
-// function check() {
-//   $('input[type="checkbox"]').prop("checked", true).change();
-// }
-
-// function uncheck() {
-//   $('input[type="checkbox"]').prop("checked", false).change();
-// }
-
-
-
- // $('#show_ss').change(function() {       
- //     softMarker.setVisible($(this).is(":checked"));               
- // });
 
 
 
   }
     
   
-  
+//   function toggleKMLLayer() {
+// let kml = document.getElementById('datacheckbox');
+// kml.addEventListener("click", function (evt) {
+//   let elem = evt.target;
+//         if (!document.getElementById('liq').checked)
+//                 overlay.setMap(null);
+//         else
+//                 overlay.setMap(map);
+

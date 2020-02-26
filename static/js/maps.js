@@ -77,12 +77,12 @@ var map;
             {
               featureType: 'water',
               elementType: 'geometry',
-              stylers: [{color: '#c3d0e4'}]
+              stylers: [{color: '#0e1626'}]
             },
             {
               featureType: 'water',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
+              stylers: [{color: '#4e6d70'}]
             },
             {
               featureType: 'water',
@@ -95,11 +95,11 @@ var map;
 // Add the liquefaction layer KML file on top of the initialized map
 
         let overlay = new google.maps.KmlLayer({ 
-    url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
+    url: 'https://docs.google.com/uc?id=1eOG4xoRL7ZP9D52QWZ3jgDCozbKhHhTz&amp;export=kml', 
     preserveViewport: true,
     map: map,
 
-  });   
+  });  
 
 // The KML layer resets the default zoom, so set the zoom again to 13 
 
@@ -139,8 +139,8 @@ console.log(markerGroups)
         type: "tall",
         url: 'http://localhost:5000/buildings/<tall.building_id>',
         icon: {
-          url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/WhiteDot.svg',
-          scaledSize: new google.maps.Size(10, 10)
+          url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bluedot.svg',
+          scaledSize: new google.maps.Size(5, 5)
         },
         map: map,
       });

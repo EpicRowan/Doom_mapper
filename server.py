@@ -42,8 +42,8 @@ def building_info():
             "liquefaction": tallbuilding.liquefaction,
             "at_risk": tallbuilding.at_risk,
             "latitude": tallbuilding.building.latitude,
-            "longitude": tallbuilding.building.longitude
-			#"address": tallbuilding.building.address,
+            "longitude": tallbuilding.building.longitude,
+			"address": tallbuilding.building.address,
             
 
          }
@@ -72,10 +72,14 @@ def softstory_info():
 
     return jsonify(softbuildings)
 
-@app.route("/buildings/<int:building_id>")
-def display(building_id):
-    return render_template("buildings.html")
-    pass
+
+
+# @app.route("/buildings/search")
+# def display(address):
+
+#     searched = Building.query.get(address)
+
+#     return render_template("search.html", searched = searched )
 
 
 

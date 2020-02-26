@@ -52,7 +52,7 @@ console.log(markerGroups)
         },
         title: `${tall.name}`,
         type: "tall",
-        url: 'http://localhost:5000/buildings/<tall.building_id>',
+        // url: '/buildings/search'
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bluedot.svg',
           scaledSize: new google.maps.Size(5, 5)
@@ -65,7 +65,10 @@ console.log(markerGroups)
 // Create the event listener that will connect with the information page for tall buildings
 
       google.maps.event.addListener(tallMarker, 'click', function() {
-      window.location.href = this.url;
+      // window.location.href = this.url;
+          
+          url: '/buildings/search'
+
     });
 
 
@@ -129,9 +132,52 @@ dataLayerChoice.addEventListener("click", function (evt) {
   }
     
 
+               
+// else
+//     overlay.setMap(map); 
+
+// }  else if (elem.id === "liq") {
+//      overlay.setMap(null);
+//   }
+         
+     
+
 });
 
 }
     
  
 
+
+//   function toggleKml() {
+// let kml = document.getElementById('datacheckbox');
+// kml.addEventListener("click", function (evt) {
+//   let elem = evt.target;
+//         if (!document.getElementById('liq').checked)
+//                 overlay.setMap(null);
+//         else
+//                 overlay.setMap(map);
+
+
+
+
+
+// SIDELINES OF CODE
+
+  // overlay.setMap(map);
+  
+
+         // overlay.addListener('click', function(event)
+
+      // document.getElementById('liq').checked = true;
+
+       // markerGroups["liq"].push(overlay);
+
+// Add the liquefaction layer KML file on top of the initialized map
+
+  //       let overlay = new google.maps.KmlLayer({ 
+  //   url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
+  //   preserveViewport: false,
+  //   map: map,
+
+  // }); 

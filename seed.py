@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
     #csv file names and locations
 
-    soft_filename = "seed_data/Soft-Story_Properties V2.csv"
+    soft_filename = "seed_data/Soft-Story_Properties V3.csv"
     tall_filename = "seed_data/Tall_Building_Inventory_clean.csv"
     
     #function calls

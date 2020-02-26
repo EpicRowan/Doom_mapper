@@ -23,6 +23,7 @@ app.jinja_env.undefined = StrictUndefined
 
 @app.route('/')
 def view_home_map():
+
     """Homepage and main Google Map with clickable markers on map"""
 
     return render_template("homepage.html")
@@ -30,6 +31,7 @@ def view_home_map():
 
 @app.route("/api/tallbuildings")
 def building_info():
+
     """JSON information about buildings."""
 
 
@@ -41,7 +43,7 @@ def building_info():
             "at_risk": tallbuilding.at_risk,
             "latitude": tallbuilding.building.latitude,
             "longitude": tallbuilding.building.longitude
-			#"address": softstory.building.address,
+			#"address": tallbuilding.building.address,
             
 
          }

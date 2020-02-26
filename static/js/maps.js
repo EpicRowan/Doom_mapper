@@ -11,8 +11,6 @@ var map;
            styles:  MAPSTYLES,
         });
 
-
-
 // Add the liquefaction layer KML file on top of the initialized map
 
         let overlay = new google.maps.KmlLayer({ 
@@ -64,6 +62,7 @@ console.log(markerGroups)
 
       markerGroups["tall"].push(tallMarker);
 
+// Create the event listener that will connect with the information page for tall buildings
 
       google.maps.event.addListener(tallMarker, 'click', function() {
       window.location.href = this.url;
@@ -72,6 +71,7 @@ console.log(markerGroups)
 
     }
   })
+
 
   // Create the soft story building markers and populate the map with the markers
 
@@ -97,10 +97,6 @@ console.log(markerGroups)
 
     }
   })
-
-  // Set the initial checkbox on the liquefaction layer to unchecked
-
-// document.getElementById('show_hide_KML_Layer_01').checked = false;
 
 
   // Toggle the markers on and off depending on if the checkbox is checked or unchecked
@@ -133,52 +129,9 @@ dataLayerChoice.addEventListener("click", function (evt) {
   }
     
 
-               
-// else
-//     overlay.setMap(map); 
-
-// }  else if (elem.id === "liq") {
-//      overlay.setMap(null);
-//   }
-         
-     
-
 });
 
 }
     
  
 
-
-//   function toggleKml() {
-// let kml = document.getElementById('datacheckbox');
-// kml.addEventListener("click", function (evt) {
-//   let elem = evt.target;
-//         if (!document.getElementById('liq').checked)
-//                 overlay.setMap(null);
-//         else
-//                 overlay.setMap(map);
-
-
-
-
-
-// SIDELINES OF CODE
-
-  // overlay.setMap(map);
-  
-
-         // overlay.addListener('click', function(event)
-
-      // document.getElementById('liq').checked = true;
-
-       // markerGroups["liq"].push(overlay);
-
-// Add the liquefaction layer KML file on top of the initialized map
-
-  //       let overlay = new google.maps.KmlLayer({ 
-  //   url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
-  //   preserveViewport: false,
-  //   map: map,
-
-  // }); 

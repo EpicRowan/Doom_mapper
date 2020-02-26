@@ -2,19 +2,19 @@
 {% block content %}
 {% block head %}
  <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
       #map {
         height: 90%;
         width: 80%;
+        margin-left:auto;
+        margin-right:auto;
          
       }
-      /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 90%;
         margin: 0;
 
       }
+
   </style>
   <center><h1>DOOM MAPPER</h1>
 
@@ -47,42 +47,11 @@
             <label> Tall Buildings </label>
             <input name="checkbox" id="tall" type="checkbox"  checked="checked"></input>
             <label> Liquefaction</label>
-            <input name="checkbox" id="liq" type="checkbox" checked="checked">
-          <!--   <input type="checkbox" id="show_hide_KML_Layer_01" onClick="toggleKml()"> -->
-            	
-            </input></div></center>
-          
-    <!--       <center>
-        	<label> Soft Story Buildings </label>
-            <input name="checkbox" id="show_ss" type="checkbox" onclick="toggleGroup('softMarker')" checked="checked"></input>
-            <label> Tall Buildings </label>
-            <input name="checkbox" id="show_tb" type="checkbox" onclick="toggleGroup('tall')" checked="checked"></input>
-            <label> Liquefaction</label>
-            <input name="checkbox" id="show_liq" type="checkbox" onclick="toggleGroup(overlay)" checked="checked"></input></center> -->
-          
+            <input name="checkbox" id="liq" type="checkbox" checked="checked"></input>
+        </div></center>
         </ul>
     </div>
 </div>
 {% endblock %}
-
-
-
- 
-<!--   <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.773972, lng: -122.431297},
-          zoom: 13
-        });
-        var ctaLayer = new google.maps.KmlLayer({ 
-    url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
-    map: map 
-  }); 
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA&callback=initMap"
-    async defer></script> -!>  -->
 
 {% endblock %}

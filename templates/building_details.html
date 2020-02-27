@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if searched.tallbuilding %}
+
+<h2>Tall Building</h2>
+<h2>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></h2>
+ <h2>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }} </u></h2>
+
+ {% endif %}
+
+{% if searched.softstory %}
+
+
+<h2>Soft Story</h2>
+ <h2>Retrofit Status: <u> {{ searched.softstory.status }} </u></h2>
+ <h1>Doom Score: {{ doom}} </h1>
+
+ {% endif %}
+
+{% endblock %}

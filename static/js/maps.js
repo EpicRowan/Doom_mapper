@@ -36,15 +36,13 @@ var markerGroups = {
         
 };
 
-console.log(markerGroups)
-
 
 // Create the tall building markers and populate the map with the markers
 
   $.get("/api/tallbuildings", (tallbuildings) => {
     
     for (const tall of tallbuildings) {
-      
+      console.log(tall.id)
       const tallMarker = new google.maps.Marker({
         position: {
           lat: parseFloat(tall.latitude),
@@ -52,22 +50,24 @@ console.log(markerGroups)
         },
         title: `${tall.name}`,
         type: "tall",
-        // url: '/buildings/search'
+        url: '/buildings/' + tall.id,
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bluedot.svg',
-          scaledSize: new google.maps.Size(5, 5)
+          scaledSize: new google.maps.Size(7, 7)
         },
         map: map,
       });
 
       markerGroups["tall"].push(tallMarker);
+      console.log(tallMarker.url);
 
 // Create the event listener that will connect with the information page for tall buildings
 
       google.maps.event.addListener(tallMarker, 'click', function() {
-      // window.location.href = this.url;
-          
-          url: '/buildings/search'
+      window.location.href = this.url;
+
+
+          // url: '/buildings/search'
 
     });
 

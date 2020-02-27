@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, flash, redirect, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
-from functions import doom_score_tall,  doom_score_soft
+from functions import doom_score_tall,  doom_score_soft, get_doom
 
 app = Flask(__name__)
 
@@ -74,12 +74,14 @@ def softstory_info():
 
 
 
-# @app.route("/buildings/search")
-# def display(address):
+@app.route("/buildings/<id>")
+def display(id):
 
-#     searched = Building.query.get(address)
+    searched = Building.query.get(id)
 
-#     return render_template("search.html", searched = searched )
+    doom = get_doom(searched)
+
+    return render_template("building_details.html", searched = searched, doom=doom )
 
 
 

@@ -19,6 +19,7 @@ var map;
     map: map,
 
   });  
+  
 
 // The KML layer resets the default zoom, so set the zoom again to 13 
 

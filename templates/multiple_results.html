@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center><h1> Too many results! </h1></center>
+<center><h2>There are {{ count_search}} results for your search. Try something more specific</h2></center>
+
+<input type="button" class="btn btn-lg btn-success" onclick="location.href='/';" value="Back to Doom" />
+
+{% endblock %}

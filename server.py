@@ -8,6 +8,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
 from functions import get_doom
+import json
+from shapely.geometry import shape, mapping
 
 app = Flask(__name__)
 
@@ -25,6 +27,7 @@ app.jinja_env.undefined = StrictUndefined
 def view_home_map():
 
     """Homepage and main Google Map with clickable markers on map"""
+
 
     return render_template("homepage.html")
 
@@ -90,12 +93,20 @@ def search_results():
 
     """Search for an address that is in the database as either a softstory or tall building in San Francisco and retrieve the data""" 
 
-    find = request.args.get("entered_address")
+    find_address = request.args.get("entered_address")
 
     #Makes the search case insenstitive 
 
-    searched = Building.query.filter(Building.address.ilike (find + "%"),).first()
+    count_search = Building.query.filter(Building.address.ilike (find_address + "%"),).count()
 
+    if count_search > 1:
+
+        return render_template ("multiple_results.html", count_search = count_search)
+
+    else:
+    
+        searched = Building.query.filter(Building.address.ilike (find_address + "%"),).first()
+   
     #if there is no record in the database, return the Not Found page
 
     if searched == None:

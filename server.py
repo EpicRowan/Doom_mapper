@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, flash, redirect, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
-from functions import doom_score_tall,  doom_score_soft, get_doom
+from functions import get_doom
 
 app = Flask(__name__)
 
@@ -37,13 +37,13 @@ def building_info():
 
     tallbuildings = [
 {
-"id": tallbuilding.building_id,
-"name": tallbuilding.name,
-"liquefaction": tallbuilding.liquefaction,
-"at_risk": tallbuilding.at_risk,
-"latitude": tallbuilding.building.latitude,
-"longitude": tallbuilding.building.longitude,
-"address": tallbuilding.building.address,
+    "id": tallbuilding.building_id,
+    "name": tallbuilding.name,
+    "liquefaction": tallbuilding.liquefaction,
+    "at_risk": tallbuilding.at_risk,
+    "latitude": tallbuilding.building.latitude,
+    "longitude": tallbuilding.building.longitude,
+    "address": tallbuilding.building.address,
 
 
 }
@@ -59,11 +59,11 @@ def softstory_info():
 
     softbuildings = [
 {
-"id": softstory.building_id,
-"status": softstory.status,
-"address": softstory.building.address,
-"latitude": softstory.building.latitude,
-"longitude": softstory.building.longitude
+    "id": softstory.building_id,
+    "status": softstory.status,
+    "address": softstory.building.address,
+    "latitude": softstory.building.latitude,
+    "longitude": softstory.building.longitude
 
 
 }

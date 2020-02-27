@@ -130,16 +130,7 @@ dataLayerChoice.addEventListener("click", function (evt) {
 }  else if (elem.id === "liq") {
     toggleKML()  
   }
-    
-
-               
-// else
-//     overlay.setMap(map); 
-
-// }  else if (elem.id === "liq") {
-//      overlay.setMap(null);
-//   }
-         
+          
      
 
 });
@@ -147,37 +138,3 @@ dataLayerChoice.addEventListener("click", function (evt) {
 }
     
  
-
-
-//   function toggleKml() {
-// let kml = document.getElementById('datacheckbox');
-// kml.addEventListener("click", function (evt) {
-//   let elem = evt.target;
-//         if (!document.getElementById('liq').checked)
-//                 overlay.setMap(null);
-//         else
-//                 overlay.setMap(map);
-
-
-
-
-
-// SIDELINES OF CODE
-
-  // overlay.setMap(map);
-  
-
-         // overlay.addListener('click', function(event)
-
-      // document.getElementById('liq').checked = true;
-
-       // markerGroups["liq"].push(overlay);
-
-// Add the liquefaction layer KML file on top of the initialized map
-
-  //       let overlay = new google.maps.KmlLayer({ 
-  //   url: 'https://data.sfgov.org/api/geospatial/7ahv-68ap?method=export&format=KML', 
-  //   preserveViewport: false,
-  //   map: map,
-
-  // }); 

@@ -49,7 +49,6 @@ var markerGroups = {
           lng: parseFloat(tall.longitude)
         },
         title: `${tall.name}`,
-        type: "tall",
         url: '/buildings/' + tall.id,
         icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bluedot.svg',
@@ -59,18 +58,13 @@ var markerGroups = {
       });
 
       markerGroups["tall"].push(tallMarker);
-      console.log(tallMarker.url);
 
 // Create the event listener that will connect with the information page for tall buildings
 
       google.maps.event.addListener(tallMarker, 'click', function() {
       window.location.href = this.url;
 
-
-          // url: '/buildings/search'
-
     });
-
 
     }
   })
@@ -89,6 +83,7 @@ var markerGroups = {
           lng: parseFloat(soft.longitude)
         },
         title: `${soft.address}`,
+        url: '/buildings/' + soft.id,
        icon: {
           url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg',
           scaledSize: new google.maps.Size(10, 10)
@@ -97,6 +92,11 @@ var markerGroups = {
       });
 
        markerGroups["soft"].push(softMarker);
+
+      google.maps.event.addListener(softMarker, 'click', function() {
+      window.location.href = this.url;
+
+    });
 
     }
   })

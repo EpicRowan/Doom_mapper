@@ -37,8 +37,16 @@ def get_doom(building):
 
 
 def random_fact():
-		facts = ["It is thought that more damage was done by the resulting fire after the 1906 \
-		San Francisco earthquake than by the earthquake itself.", "It is predicted that if the Big One hits San Francisco during the day, upwards of \
-		1,000 people might be trapped in elevators alone", ]
+		facts = ["It is predicted that if the Big One hits San Francisco during the day, upwards of \
+		22,000 people might be trapped in approximately 4,600 stalled elevators.", "Estimates show that after a 7.0+, most people will \
+		be without running water for approximately six weeks but some will be without water for up to six months", \
+		"Charles Richter, creator of the Richter scale, said about skyscrapers 'Don’t build them in California.'", \
+		"It is estimated that a 7.0+ quake from the Hayward fault will trap about 2,500 people in around 5,000 collapsed buildings", \
+		"A large earthqauke from the Hayward fault is predicted to spark as many as 670 fires, approximately 450 of which \
+		could not be easily contained." , "While most earthquakes last only 10 to 30 seconds, occasscionally the shaking lasts for up \
+		to ten minutes.", "Due to the over 1,000 miles of old sewer systems under San Francisco, a large quake will likely \
+		cause numerous sinkholes large enough to swallow cars or even whole buildings." 
+
+		]
 
 		return random.choice(facts)

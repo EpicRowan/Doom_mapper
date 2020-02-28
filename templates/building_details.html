@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- <link rel="stylesheet" href="/static/css/building_details.css"/> -->
 
 {% if searched.tallbuilding %}
 
@@ -8,6 +9,7 @@
 
 <h2>Tall Building</h2>
 <h2>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></h2>
+
 
  <h2>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }} </u></h2>
 

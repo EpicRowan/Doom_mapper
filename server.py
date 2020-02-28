@@ -7,9 +7,10 @@ from flask import Flask, render_template, request, flash, redirect, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
-from functions import get_doom
+from functions import get_doom, random_fact
 import json
-from shapely.geometry import shape, mapping
+from shapely.geometry import shape, mapping, Polygon
+from fiona import collection
 
 app = Flask(__name__)
 
@@ -26,7 +27,9 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def view_home_map():
 
+
     """Homepage and main Google Map with clickable markers on map"""
+
 
 
     return render_template("homepage.html")
@@ -84,7 +87,9 @@ def display(id):
 
     doom = get_doom(searched)
 
-    return render_template("building_details.html", searched=searched, doom=doom )
+    fact = random_fact()
+
+    return render_template("building_details.html", searched=searched, doom=doom, fact=fact)
 
 
 
@@ -99,9 +104,11 @@ def search_results():
 
     count_search = Building.query.filter(Building.address.ilike (find_address + "%"),).count()
 
+    fact = random_fact()
+
     if count_search > 1:
 
-        return render_template ("multiple_results.html", count_search = count_search)
+        return render_template ("multiple_results.html", count_search = count_search, fact=fact)
 
     else:
     
@@ -117,7 +124,8 @@ def search_results():
 
         doom = get_doom(searched)
 
-        return render_template("building_details.html", searched=searched, doom=doom)
+
+        return render_template("building_details.html", searched=searched, doom=doom, fact=fact)
 
 
 

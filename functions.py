@@ -1,4 +1,6 @@
 
+import random 
+
 
 def get_doom(building):
 
@@ -30,5 +32,13 @@ def get_doom(building):
 		elif building.tallbuilding.liquefaction == "Low":
 			doom_score += 2
 
-
 	return doom_rating[doom_score]
+
+
+
+def random_fact():
+		facts = ["It is thought that more damage was done by the resulting fire after the 1906 \
+		San Francisco earthquake than by the earthquake itself.", "It is predicted that if the Big One hits San Francisco during the day, upwards of \
+		1,000 people might be trapped in elevators alone", ]
+
+		return random.choice(facts)

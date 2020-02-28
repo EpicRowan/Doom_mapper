@@ -14,12 +14,15 @@ var map;
 // Add the liquefaction layer KML file on top of the initialized map
 
         let overlay = new google.maps.KmlLayer({ 
+
     url: 'https://docs.google.com/uc?id=1eOG4xoRL7ZP9D52QWZ3jgDCozbKhHhTz&amp;export=kml', 
     preserveViewport: true,
+    clickable: false,
     map: map,
 
   });  
-  
+
+
 
 // The KML layer resets the default zoom, so set the zoom again to 13 
 
@@ -29,6 +32,13 @@ google.maps.event.addListenerOnce(map, 'zoom_changed', function() {
 });
 
 // Set the categories of the different Marker types and KML layer     
+
+// map.data.addGeoJson('/static/San Francisco Seismic Hazard Zones (1).geojson');
+// var featureStyle = {
+//     strokeColor: '#212121',
+//     strokeWeight: 4
+// }
+
 
 var markerGroups = {
     "tall": [],

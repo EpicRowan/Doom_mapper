@@ -42,7 +42,7 @@ def random_fact():
 		be without running water for approximately six weeks but some will be without water for up to six months", \
 		"Charles Richter, creator of the Richter scale, said about skyscrapers 'Don’t build them in California.'", \
 		"It is estimated that a 7.0+ quake from the Hayward fault will trap about 2,500 people in around 5,000 collapsed buildings", \
-		"A large earthqauke from the Hayward fault is predicted to spark as many as 670 fires, approximately 450 of which \
+		"A large earthquake from the Hayward fault is predicted to spark as many as 670 fires, approximately 450 of which \
 		could not be easily contained." , "While most earthquakes last only 10 to 30 seconds, occasscionally the shaking lasts for up \
 		to ten minutes.", "Due to the over 1,000 miles of old sewer systems under San Francisco, a large quake will likely \
 		cause numerous sinkholes large enough to swallow cars or even whole buildings." 

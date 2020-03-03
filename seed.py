@@ -22,12 +22,13 @@ def load_soft_story_status(soft_filename):
         data = csv.reader(csvfile)
 
         for row in data:
-            address, status, latitude, longitude = row
+            address, status, latitude, longitude, liquefaction = row
 
-            soft_story = SoftStory(status=status)
+            soft_story = SoftStory(status=status, liquefaction=liquefaction)
             building = Building(address=address, latitude=float(latitude), longitude=float(longitude))
             soft_story.building = building
 
+            liquefaction = liquefaction == "yes"
 
             # We need to add to the session or it won't ever be stored
             db.session.add(soft_story)
@@ -60,8 +61,6 @@ def load_tall_building(tall_filename):
         latitude = float(location.latitude)
         longitude = float(location.longitude)
 
-        print(latitude)
-        print(longitude)
 
         tall_building = TallBuilding(name=name, at_risk = at_risk, liquefaction=liquefaction)
         building = Building(address=address, latitude=latitude, longitude=longitude)
@@ -82,7 +81,7 @@ if __name__ == "__main__":
 
     #csv file names and locations
 
-    soft_filename = "seed_data/Soft-Story_Properties V3.csv"
+    soft_filename = "seed_data/Soft-Story_Properties V4.csv"
     tall_filename = "seed_data/Tall_Building_Inventory_clean.csv"
     
     #function calls

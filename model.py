@@ -49,6 +49,8 @@ class SoftStory(db.Model):
 
     status = db.Column(db.String(64), nullable=True)
 
+    liquefaction = db.Column(db.String(), nullable=True)
+
     building = db.relationship('Building', backref=db.backref('softstory', uselist=False))
     
 

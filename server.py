@@ -9,10 +9,10 @@ from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
 from functions import get_doom, random_fact
 import json
-from shapely import geometry
-from shapely.geometry import shape, mapping, Polygon, MultiPoint
-import geopandas as gdp
-import matplotlib.pyplot
+# from shapely import geometry
+# from shapely.geometry import shape, mapping, Polygon, MultiPoint
+# import geopandas as gdp
+# import matplotlib.pyplot
 
 app = Flask(__name__)
 
@@ -29,7 +29,7 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def view_home_map():
 
-    polylist = gdp.read_file('static/geo_export_38936254-4af1-44ff-9a71-92aef3061c03.shp', encoding='UTF-8')
+    # polylist = gdp.read_file('static/geo_export_38936254-4af1-44ff-9a71-92aef3061c03.shp', encoding='UTF-8')
     # print(polylist)
     # polylist.plot()
     # poly_attempt2 = MultiPoint(polylist).convex_hull
@@ -151,4 +151,4 @@ app.run(host="0.0.0.0")
 
 
 
-d
+

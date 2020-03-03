@@ -16,6 +16,11 @@ def get_doom(building):
 
 			doom_score += 5
 
+		if building.softstory.liquefaction == "yes":
+
+			doom_score += 5
+	
+			
 	elif building.tallbuilding:
 		if building.tallbuilding.at_risk == True:
 			doom_score += 5

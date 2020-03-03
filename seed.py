@@ -29,6 +29,8 @@ def load_soft_story_status(soft_filename):
             soft_story.building = building
 
             liquefaction = liquefaction == "yes"
+            print(address)
+            print(liquefaction)
 
             # We need to add to the session or it won't ever be stored
             db.session.add(soft_story)

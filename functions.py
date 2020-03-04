@@ -4,6 +4,8 @@ import random
 
 def get_doom(building):
 
+	''' Adds together risk factors for a building and uses that number to retrieve an appropriate Doom Score from a dictionary of scores'''
+
 	doom_score = 0
 
 	doom_rating = {0: "Probaby Not Doomed!", 1: "Low chance of Doom", 2: "Low chance of Doom", \
@@ -42,6 +44,10 @@ def get_doom(building):
 
 
 def random_fact():
+
+		''' Generates a random scary earthquake fact on results pages'''
+
+
 		facts = ["It is predicted that if the Big One hits San Francisco during the day, upwards of \
 		22,000 people might be trapped in approximately 4,600 stalled elevators.", "Estimates show that after a 7.0+, most people will \
 		be without running water for approximately six weeks but some will be without water for up to six months", \

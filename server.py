@@ -9,10 +9,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db, Building, SoftStory, TallBuilding
 from functions import get_doom, random_fact
 import json
-# from shapely import geometry
-# from shapely.geometry import shape, mapping, Polygon, MultiPoint
-# import geopandas as gdp
-# import matplotlib.pyplot
+
 
 app = Flask(__name__)
 
@@ -29,14 +26,7 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def view_home_map():
 
-    # polylist = gdp.read_file('static/geo_export_38936254-4af1-44ff-9a71-92aef3061c03.shp', encoding='UTF-8')
-    # print(polylist)
-    # polylist.plot()
-    # poly_attempt2 = MultiPoint(polylist).convex_hull
-   
-
-    """Homepage and main Google Map with clickable markers on map"""
-
+    """Renders the main homepage, main Google Map with clickable markers on map, and search feature"""
 
 
     return render_template("homepage.html")
@@ -45,7 +35,7 @@ def view_home_map():
 @app.route("/api/tallbuildings")
 def building_info():
 
-    """JSON information about buildings."""
+    """JSON information about tall buildings to be used in the blue markers on the Google Maps API"""
 
 
     tallbuildings = [
@@ -67,8 +57,8 @@ def building_info():
 
 @app.route("/api/softbuildings")
 def softstory_info():
-    """JSON information about buildings."""
 
+    """JSON information about soft story buildings to be used in the red markers on the Google Maps API"""
 
     softbuildings = [
 {
@@ -90,6 +80,8 @@ def softstory_info():
 @app.route("/buildings/<id>")
 def display(id):
 
+    """Enables clicking on a marker and retrieving the information about that location, either soft story or tall building, on the search results page"""
+
     searched = Building.query.get(id)
 
     doom = get_doom(searched)
@@ -103,8 +95,7 @@ def display(id):
 @app.route("/search")
 def search_results():
 
-
-    """Search for an address that is in the database as either a softstory or tall building in San Francisco and retrieve the data""" 
+    """Search for an address that in the database as either a softstory or tall building in San Francisco and show the data on the search results page""" 
 
     find_address = request.args.get("entered_address")
 

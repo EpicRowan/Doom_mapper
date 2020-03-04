@@ -35,7 +35,7 @@ class Building(db.Model):
         return f"<Building ID={self.building_id} Address={self.address}>"
 
 class SoftStory(db.Model):
-    """Status of retrofitted or non-compliant for soft story buildings."""
+    """Status of retrofitted or non-compliant and liquefaction risk for soft story buildings."""
 
     __tablename__ = "softstories"
 

@@ -2,6 +2,7 @@
 h1 {
   font-family: 'Libre Baskerville', serif;
   font-size: 60px;
+  color: black;
   animation: 1s shake infinite alternate;
 }
 
@@ -18,5 +19,23 @@ h1 {
 h2 {
   font-family: 'Libre Baskerville', serif;
   font-size: 30px;
+  color: white;
 
+}
+
+body, html {
+  height: 100%;
+  color: white;
+}
+body {
+  /* The image used */
+  background-image: url("/static/Photos/sf_crack.png");
+
+  /* Half height */
+  height: 50%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

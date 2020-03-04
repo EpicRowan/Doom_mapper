@@ -3,6 +3,8 @@
 {% block head %}
 
 <link rel="stylesheet" href="/static/css/homepage.css"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
  <style>
       #map {
         height: 90%;
@@ -18,29 +20,35 @@
       }
 
   </style>
-  <center><div class="col py-2 px-lg-4 border bg-light"><h1>DOOM MAPPER</h1></div>
+  <center> <div class="wrapper">
+        <div class="cracked">
+          <span>DOOMMAPPER</span>
+          <span>DOOMMAPPER</span>
+          <span>DOOMMAPPER</span>
+        </div>
+      </div><
 
   <h2>Is your building doomed in the next 7.0+ earthquake?</h2>
   	 <form action="search" method="GET">
     <div>
-      <label>Search for an address in San Francisco:
+     <h3><label>Search for an address in San Francisco:
         <input type="text" name="entered_address" required>
       </label>
     
     
    
-    <button type="submit" value="Search" class="btn btn-danger">Search</button>
+    <button type="submit" value="Search" class="btn btn-danger">Search</button></h3>
 </center>
   </div>
   </form>
   <ul><form>
         	<center><div id="datacheckbox">
-        	<label> Soft Story Buildings </label>
+        	<h3><label> Soft Story Buildings </label>
             <input name="checkbox" id="soft" type="checkbox" checked="checked"></input>
             <label> Tall Buildings </label>
             <input name="checkbox" id="tall" type="checkbox"  checked="checked"></input>
             <label> Liquefaction</label>
-            <input name="checkbox" id="liq" type="checkbox" checked="checked"></input>
+            <input name="checkbox" id="liq" type="checkbox" checked="checked"></input></h3>
         </div></center>
         </ul>
     </div>

@@ -2,7 +2,7 @@
 {% block content %}
 {% block head %}
 
-<!-- <link rel="stylesheet" href="/static/css/maps.css"/> -->
+<link rel="stylesheet" href="/static/css/homepage.css"/>
  <style>
       #map {
         height: 90%;
@@ -22,27 +22,20 @@
 
   <h2>Is your building doomed in the next 7.0+ earthquake?</h2>
   	 <form action="search" method="GET">
-      <div>
+      <div class="container">
+  <div class="row">
+    <div class="col">
       <label>Search for an address in San Francisco:
         <input type="text" name="entered_address" required>
       </label>
     </div>
-      <div>
-    <input type="submit" value="Search">
+<!--       <div class="col-sm-4">
+    <input type="submit" value="Search"> -->
+    <button type="submit" value="Search" class="btn btn-danger">Search</button>
 </center>
   </div>
   </form>
- 
- <div id="map"></div>
- <script src="/static/js/mapStyles.js"></script>
- <script src="/static/js/maps.js"></script>
-  <script
-    async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA&callback=initMap">
-  </script>
-  <div class="map_wrap">
-    <div class="siderbarmap">
-        <ul><form>
+  <ul><form>
         	<center><div id="datacheckbox">
         	<label> Soft Story Buildings </label>
             <input name="checkbox" id="soft" type="checkbox" checked="checked"></input>
@@ -53,6 +46,16 @@
         </div></center>
         </ul>
     </div>
+ <div id="map"></div>
+ <script src="/static/js/mapStyles.js"></script>
+ <script src="/static/js/maps.js"></script>
+  <script
+    async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA&callback=initMap">
+  </script>
+  <div class="map_wrap">
+    <div class="siderbarmap">
+       
 </div>
 {% endblock %}
 

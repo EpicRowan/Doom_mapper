@@ -2,6 +2,7 @@
 import unittest 
 from server import app 
 from model import db, connect_to_db, example_data
+from functions import get_doom
 
 
 
@@ -43,7 +44,7 @@ class TestFlaskRoutes(unittest.TestCase):
 
         result = self.client.get("/api/softbuildings")
 
-        self.assertIn(b"123 Fake st", result.data)
+        self.assertIn(b"1 Right way", result.data)
 
     def test_building_id_search(self):
         """Test BID search."""
@@ -54,12 +55,33 @@ class TestFlaskRoutes(unittest.TestCase):
 
 
     def test_search(self):
-        """Test search."""
+        """Test Tall search."""
 
         result = self.client.get("/search", query_string={"entered_address":'123 Fake st'})
 
-        self.assertIn(b"<title>Doom Mapper</title>", result.data)
+        self.assertIn(b"Tall Building", result.data)
 
+        """Test Soft Story search."""
+
+        result = self.client.get("/search", query_string={"entered_address":"1 Right way"})
+
+        self.assertIn(b"Soft Story", result.data)
+
+        """Test No Record search."""
+
+        result = self.client.get("/search", query_string={"entered_address":"3 Right way"})
+
+        self.assertIn(b"Not Found", result.data)
+
+        result = self.client.get("/search", query_string={"entered_address":"3 Right way"})
+
+        self.assertIn(b"Not Found", result.data)    
+
+    def test_doom_score(self):
+
+       result = self.client.get("/search", query_string={"entered_address":"1"})
+
+       self.assertIn(b"Too many results!", result.data)
 
 
 

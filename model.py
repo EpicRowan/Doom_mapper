@@ -102,9 +102,9 @@ def example_data():
     B1 = Building(building_id =1, address='123 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
     B2 = Building(building_id =2, address='456 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
     B3 = Building(building_id =3, address='2 Narnia way', latitude ="37.799302431542", longitude="-122.406357955549")
-    B4 = Building(building_id =4, address='123 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
-    B5 = Building(building_id =5, address='456 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
-    B6 = Building(building_id =6, address='2 Narnia way', latitude ="37.799302431542", longitude="-122.406357955549")
+    B4 = Building(building_id =4, address='1 Right way', latitude ="37.799302431542", longitude="-122.406357955549")
+    B5 = Building(building_id =5, address='2 Wrong way', latitude ="37.799302431542", longitude="-122.406357955549")
+    B6 = Building(building_id =6, address='3 Hacker Street', latitude ="37.799302431542", longitude="-122.406357955549")
 
     # Sample tall buildings
 

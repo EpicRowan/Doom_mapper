@@ -28,25 +28,25 @@ class TestFlaskRoutes(unittest.TestCase):
     def test_home(self):
         """Make sure home page returns correct HTML."""
 
-        result = client.get('/')
+        result = self.client.get('/')
         self.assertEqual(result.status_code, 200)
 
     def test_tall_api(self):
-        """Test important page."""
+        """Test tall api."""
 
         result = self.client.get("/api/tallbuildings")
 
         self.assertIn(b'MegaCorp', result.data)
 
     def test_softstory_api(self):
-        """Test important page."""
+        """Test softstory api"""
 
         result = self.client.get("/api/softbuildings")
 
         self.assertIn(b"123 Fake st", result.data)
 
     def test_building_id_search(self):
-        """Test important page."""
+        """Test BID search."""
 
         result = self.client.get("/buildings/1")
 
@@ -54,9 +54,9 @@ class TestFlaskRoutes(unittest.TestCase):
 
 
     def test_search(self):
-        """Test important page."""
+        """Test search."""
 
-        result = self.client.get("/search")
+        result = self.client.get("/search", query_string={"entered_address":'123 Fake st'})
 
         self.assertIn(b"<title>Doom Mapper</title>", result.data)
 

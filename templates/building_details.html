@@ -28,14 +28,16 @@
 <h1><center> {{ doom}}  </center></h1>
 
 <h2> This is a Soft Story building.</h2>
- <h2> It has been <u> {{ searched.softstory.status }}</u></h2>
- <!-- <h2> Is it in a liquefaction zone? <u> {{ searched.softstory.liquefaction }}</u></h2> -->
+{% if searched.softstory.status == "Seismic Retrofitted" %}
+<h2> Seismic Retrofitted? <u> Yes</u></h2>
+{% else %}
+ <h2> Seismic Retrofitted? <u> No, non-compliant</u></h2>
+{% endif %}
  
 	{% if searched.softstory.liquefaction %}
-	<h2> It <u>is</u> in a known liquefaction zone. </h2>
+	<h2> Liquefaction risk? <u> Yes</u></h2>
 	{% else %}
-	<h2> It is <u>not</u> in a known liquefaction zone. </h2>
-
+	<h2> Liquefaction risk? <u> No</u></h2>
 	{% endif %}
 
  {% endif %}

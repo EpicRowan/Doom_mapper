@@ -91,9 +91,11 @@ def example_data():
     """Create some sample data."""
 
     # In case this is run more than once, empty out existing data
-    Building.query.delete()
     SoftStory.query.delete()
     TallBuilding.query.delete()
+    Building.query.delete()
+
+    print('example_data')
 
     # Sample Building table
 
@@ -106,21 +108,21 @@ def example_data():
 
     # Sample tall buildings
 
-    T1 = TallBuilding(tall_id =1, name='MegaCorp', liquefaction='Very High', at_risk= True)
-    T2 = TallBuilding(tall_id =2, name='JumboCorp', liquefaction='Very Low', at_risk= False)
-    T3 = TallBuilding(tall_id =3, name='GodzillaCorp', liquefaction='Moderate', at_risk= True)
+    T1 = TallBuilding(building_id =1, name='MegaCorp', liquefaction='Very High', at_risk= True)
+    T2 = TallBuilding(building_id =2, name='JumboCorp', liquefaction='Very Low', at_risk= False)
+    T3 = TallBuilding(building_id =3, name='GodzillaCorp', liquefaction='Moderate', at_risk= True)
 
     # Sample soft story buildings
 
-    S1 = SoftStory(ss_id= 1, status="Seismic Retrofitted", liquefaction= "yes")
-    S2 = SoftStory(ss_id= 2, status="Seismic Retrofitted", liquefaction= "yes")
-    S3 = SoftStory(ss_id= 3, status="Non-Compliant", liquefaction= "yes")
+    S1 = SoftStory(building_id=4, status="Seismic Retrofitted", liquefaction= "yes")
+    S2 = SoftStory(building_id=5, status="Seismic Retrofitted", liquefaction= "yes")
+    S3 = SoftStory(building_id=6, status="Non-Compliant", liquefaction= "yes")
     
 
-    db.session.add_all([B1, B2, B3, T1, T2, T3, S1, S2, S3])
+    db.session.add_all([B1, B2, B3, B4, B5, B6, T1, T2, T3, S1, S2, S3])
     db.session.commit()    
 
-
+    print(TallBuilding.query.all(),Building.query.all(), SoftStory.query.all())
 
 
 # #####################################################################

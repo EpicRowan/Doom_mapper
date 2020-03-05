@@ -87,15 +87,50 @@ class TallBuilding(db.Model):
         return f"<Tall Building ID={self.tall_id} Liquefaction={self.liquefaction}>"
 
 
+def example_data():
+    """Create some sample data."""
+
+    # In case this is run more than once, empty out existing data
+    Building.query.delete()
+    SoftStory.query.delete()
+    TallBuilding.query.delete()
+
+    # Sample Building table
+
+    B1 = Building(building_id =1, address='123 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
+    B2 = Building(building_id =2, address='456 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
+    B3 = Building(building_id =3, address='2 Narnia way', latitude ="37.799302431542", longitude="-122.406357955549")
+    B4 = Building(building_id =4, address='123 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
+    B5 = Building(building_id =5, address='456 Fake st', latitude ="37.799302431542", longitude="-122.406357955549")
+    B6 = Building(building_id =6, address='2 Narnia way', latitude ="37.799302431542", longitude="-122.406357955549")
+
+    # Sample tall buildings
+
+    T1 = TallBuilding(tall_id =1, name='MegaCorp', liquefaction='Very High', at_risk= True)
+    T2 = TallBuilding(tall_id =2, name='JumboCorp', liquefaction='Very Low', at_risk= False)
+    T3 = TallBuilding(tall_id =3, name='GodzillaCorp', liquefaction='Moderate', at_risk= True)
+
+    # Sample soft story buildings
+
+    S1 = SoftStory(ss_id= 1, status="Seismic Retrofitted", liquefaction= "yes")
+    S2 = SoftStory(ss_id= 2, status="Seismic Retrofitted", liquefaction= "yes")
+    S3 = SoftStory(ss_id= 3, status="Non-Compliant", liquefaction= "yes")
+    
+
+    db.session.add_all([B1, B2, B3, T1, T2, T3, S1, S2, S3])
+    db.session.commit()    
+
+
+
 
 # #####################################################################
 # Helper functions
 
-def connect_to_db(app):
+def connect_to_db(app, db_name="postgresql:///buildings"):
     """Connect the database to our Flask app."""
 
     # Configure to use our PostgreSQL database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///buildings'
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_name
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)

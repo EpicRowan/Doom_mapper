@@ -133,12 +133,12 @@ if __name__ == "__main__":
 # that we invoke the DebugToolbarExtension
     app.debug = True
 
-connect_to_db(app)
+    connect_to_db(app)
 
-# Use the DebugToolbar
-DebugToolbarExtension(app)
+    #Use the DebugToolbar
+    DebugToolbarExtension(app)
 
-app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0")
 
 
 

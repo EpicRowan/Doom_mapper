@@ -117,7 +117,7 @@ def search_results():
 
     if searched == None:
 
-        return render_template("not_found_results.html")
+        return render_template("not_found_results.html", find_address=find_address, fact=fact)
 
     else:
 

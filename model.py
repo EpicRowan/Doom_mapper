@@ -2,11 +2,6 @@
 
 from flask_sqlalchemy import SQLAlchemy
 
-# This is the connection to the PostgreSQL database; we're getting
-# this through the Flask-SQLAlchemy helper library. On this, we can
-# find the `session` object, where we do most of our interactions
-# (like committing, etc.)
-
 db = SQLAlchemy()
 
 
@@ -91,6 +86,7 @@ def example_data():
     """Create some sample data."""
 
     # In case this is run more than once, empty out existing data
+
     SoftStory.query.delete()
     TallBuilding.query.delete()
     Building.query.delete()
@@ -122,7 +118,6 @@ def example_data():
     db.session.add_all([B1, B2, B3, B4, B5, B6, T1, T2, T3, S1, S2, S3])
     db.session.commit()    
 
-    print(TallBuilding.query.all(),Building.query.all(), SoftStory.query.all())
 
 
 # #####################################################################

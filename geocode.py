@@ -1,6 +1,8 @@
 import pandas as pd 
 import googlemaps
 
+"""Tall Buildings need their addresses translated into lat/long coordinates with geocoding"""
+
 tb = pd.read_csv("seed_data/Tall_Building_Inventory_clean.csv")
 
 gmaps_key = googlemaps.Client(key="AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA")

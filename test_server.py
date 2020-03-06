@@ -26,6 +26,7 @@ class TestFlaskRoutes(unittest.TestCase):
     def tearDown(self):
     	"""Stuff to do after each test."""
 
+
     def test_home(self):
         """Make sure home page returns correct HTML."""
 
@@ -57,9 +58,11 @@ class TestFlaskRoutes(unittest.TestCase):
     def test_search(self):
         """Test Tall search."""
 
+
         result = self.client.get("/search", query_string={"entered_address":'123 Fake st'})
 
         self.assertIn(b"Tall Building", result.data)
+
 
         """Test Soft Story search."""
 
@@ -73,19 +76,19 @@ class TestFlaskRoutes(unittest.TestCase):
 
         self.assertIn(b"Not Found", result.data)
 
-        result = self.client.get("/search", query_string={"entered_address":"3 Right way"})
+        """Test Too Many records search."""
 
-        self.assertIn(b"Not Found", result.data)    
+        result = self.client.get("/search", query_string={"entered_address":"1"})
+
+        self.assertIn(b"Too many results!", result.data)
 
     def test_doom_score(self):
 
-       result = self.client.get("/search", query_string={"entered_address":"1"})
+    	result= self.client.get("/search", query_string={"entered_address":'123 Fake st'})
 
-       self.assertIn(b"Too many results!", result.data)
-
+    	self.assertIn(b"Guaranteed", result.data)
 
 
 if __name__ == '__main__':
 	unittest.main()
-	# connect_to_db(app)
 

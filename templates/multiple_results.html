@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style type="text/css"></style>
+<link rel="stylesheet" href="/static/css/building_details.css"/>
+
 <center><h1> Too many results! </h1></center>
 <center><h2>There are {{ count_search}} results for your search. Try something more specific</h2></center>
 
- <center> Scary Earthquake fact! </center>
-  <center> {{ fact }} </center>
+<font size="5"><b><center> Scary Earthquake fact! </center></b>
+  <center> {{ fact }} </center> </font>
 
 <input type="button" class="btn btn-lg btn-success" onclick="location.href='/';" value="Back to Doom" />
 

@@ -4,7 +4,7 @@ import random
 
 def get_doom(building):
 
-	''' Adds together risk factors for a building and uses that number to retrieve an appropriate Doom Score from a dictionary of scores'''
+	'''Adds together risk factors for a building and uses that number to retrieve an appropriate Doom Score from a dictionary of scores'''
 
 	doom_score = 0
 

@@ -4,6 +4,8 @@ body {
 
 }
 
+/* Mouseover help bubble */
+
 .help-tip{
     position: absolute;
     top: 18px;

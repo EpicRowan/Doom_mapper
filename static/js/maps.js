@@ -33,13 +33,6 @@ google.maps.event.addListenerOnce(map, 'zoom_changed', function() {
 
 // Set the categories of the different Marker types and KML layer     
 
-// map.data.addGeoJson('/static/San Francisco Seismic Hazard Zones (1).geojson');
-// var featureStyle = {
-//     strokeColor: '#212121',
-//     strokeWeight: 4
-// }
-
-
 var markerGroups = {
     "tall": [],
         "soft": [],
@@ -131,6 +124,8 @@ function toggleKML() {
                 
         } else {overlay.setMap(map);
         }
+
+  // Main function for turning on or off markers and liquefaction zone    
                 
 }
 let dataLayerChoice = document.getElementById('datacheckbox');

@@ -1,4 +1,6 @@
 
+  /* Doom Mapper Logo style and animation */
+
 h1 {
    background: #000;
 }
@@ -44,6 +46,7 @@ h1 {
   100% { transform: skewX(0deg); }  
 }
 
+  /* Headings styles */
 
 h2 {
   font-family: 'Libre Baskerville', serif;
@@ -66,8 +69,10 @@ body, html {
   font-size: 7px;
   color: white;
 }
+
 body {
-  /* The image used */
+  /* The background image */
+  
   background-image: url("/static/Photos/sf_crack.png");
 
   /* Half height */

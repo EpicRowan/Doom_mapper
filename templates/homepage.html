@@ -2,6 +2,7 @@
 {% block content %}
 {% block head %}
 
+
 <link rel="stylesheet" href="/static/css/homepage.css"/>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
@@ -19,7 +20,13 @@
 
       }
 
+
+
   </style>
+
+
+ <!-- App Logo --> 
+
   <center> <div class="wrapper">
         <div class="cracked">
           <span>DOOMMAPPER</span>
@@ -29,19 +36,24 @@
         </div>
       </div>
 
+ <!-- Heading #2 Under Logo --> 
+
   <h2>Is your building doomed in the next 7.0+ earthquake?</h2>
   	 <form action="search" method="GET">
     <div>
+
+ <!-- Search Box and Label --> 
+
      <h3><label>Search for an address in San Francisco:
         <input type="text" name="entered_address" required>
       </label>
-    
-    
-   
     <button type="submit" value="Search" class="btn btn-lg btn-danger">Search</button></h3>
 </center>
   </div>
   </form>
+
+ <!-- Check boxes for toggling on and off markers and zones --> 
+
   <ul><form>
         	<center><div id="datacheckbox">
         	<h3><label> Soft Story Buildings </label>
@@ -53,6 +65,9 @@
         </div></center>
         </ul>
     </div>
+
+ <!-- Google Map Javascript file and Styling--> 
+
  <div id="map">
  <script src="/static/js/mapStyles.js"></script>
  <script src="/static/js/maps.js"></script>

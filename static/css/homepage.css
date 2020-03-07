@@ -2,7 +2,10 @@
   /* Doom Mapper Logo style and animation */
 
 h1 {
-   background: #000;
+    font-size: 100px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+
 }
 .wrapper {
   width: 10vw;
@@ -48,8 +51,15 @@ h1 {
 
   /* Headings styles */
 
+@font-face {
+
+   font-family: 'Action';
+   src: url('/static/Action of the Time New.ttf') format('truetype');
+
+}
+
 h2 {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Action', san-serif;
   font-size: 30px;
   color: white;
 
@@ -61,18 +71,10 @@ h3 {
   color: white;
 
 }
-body, html {
-   margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  font-size: 7px;
-  color: white;
-}
 
 body {
   /* The background image */
-  
+
   background-image: url("/static/Photos/sf_crack.png");
 
   /* Half height */
@@ -82,4 +84,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: 7px;
+  color: white;
 }

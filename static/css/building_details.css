@@ -1,8 +1,17 @@
 
 body {
   font-family: 'Libre Baskerville', serif;
+  color: white;
 
+   /* The background image */
+  background-image: url("/static/Photos/sf_crack.png");
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+
 
 /* Mouseover help bubble */
 
@@ -88,3 +97,4 @@ body {
     0% { opacity:0; }
     100% { opacity:100%; }
 }
+

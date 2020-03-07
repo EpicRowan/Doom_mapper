@@ -6,7 +6,9 @@
 <link rel="stylesheet" href="/static/css/homepage.css"/>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
+ <!-- Map formating --> 
  <style>
+
       #map {
         height: 90%;
         width: 80%;
@@ -17,22 +19,19 @@
       html, body {
         height: 90%;
         margin: 0;
-
       }
-
-
 
   </style>
 
-
  <!-- App Logo --> 
 
-  <center> <div class="wrapper">
+  <center><div class="wrapper">
         <div class="cracked">
+        	<h1>
           <span>DOOMMAPPER</span>
           <span>DOOMMAPPER</span>
           <span>DOOMMAPPER</span>
-
+      </h1>
         </div>
       </div>
 
@@ -47,13 +46,13 @@
      <h3><label>Search for an address in San Francisco:
         <input type="text" name="entered_address" required>
       </label>
-    <button type="submit" value="Search" class="btn btn-lg btn-danger">Search</button></h3>
+    <button type="submit" value="Search" class="btn btn-lg btn-light">Search</button></h3>
 </center>
   </div>
   </form>
 
  <!-- Check boxes for toggling on and off markers and zones --> 
-
+<!-- 
   <ul><form>
         	<center><div id="datacheckbox">
         	<h3><label> Soft Story Buildings </label>
@@ -65,6 +64,25 @@
         </div></center>
         </ul>
     </div>
+ -->
+
+ <!-- Check boxes for toggling on and off markers and zones --> 
+
+	<center><div id="datacheckbox">
+		<h3><div class="btn-group-toggle" div id="datacheckbox" data-toggle="buttons">
+  <label class="btn btn-danger active">
+    <input type="checkbox" id="soft"checked autocomplete="on"> Soft Story Buildings
+  </label>
+<label class="btn btn-primary active">
+    <input type="checkbox" id="tall"checked autocomplete="on"> Tall Buildings
+  </label>
+<label class="btn btn-dark active">
+    <input type="checkbox" id="liq"checked autocomplete="on"> Liquefaction 
+  </label></h3>
+</div>
+</center>
+</div>
+
 
  <!-- Google Map Javascript file and Styling--> 
 

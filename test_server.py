@@ -74,7 +74,7 @@ class TestFlaskRoutes(unittest.TestCase):
 
         result = self.client.get("/search", query_string={"entered_address":"3 Right way"})
 
-        self.assertIn(b"Not Found", result.data)
+        self.assertIn(b"No Record", result.data)
 
         """Test Too Many records search."""
 

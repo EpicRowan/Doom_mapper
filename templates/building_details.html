@@ -5,12 +5,12 @@
 
 {% if searched.tallbuilding %}
 
-<h1><center> Is {{ searched.tallbuilding.building.address }} Doomed? </center></h1>
+<h2><center> Is {{ searched.tallbuilding.building.address }} Doomed? </center></h2>
 <h1><center> {{ doom}}  </center></h1>
 
-<h2>Tall Building</h2>
-<h2>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></h2>
- <h2>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }} </u></h2>
+<h3>Tall Building</h3>
+<h3>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></h3>
+<h3>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }} </u></h3>
 
   <!-- Info mouseover about Liquifaction and Flawed Construction --> 
 
@@ -25,20 +25,20 @@
 
 {% if searched.softstory %}
 
-<h1><center> Is {{ searched.softstory.building.address }} Doomed? </center></h1>
+<h2><center> Is {{ searched.softstory.building.address }} Doomed? </center></h2>
 <h1><center> {{ doom}}  </center></h1>
 
-<h2> This is a Soft Story building.</h2>
+<h3> This is a Soft Story building.</h3>
 {% if searched.softstory.status == "Seismic Retrofitted" %}
-<h2> Seismic Retrofitted? <u> Yes</u></h2>
+ <h3>Seismic Retrofitted? <u> Yes</u></h3>
 {% else %}
- <h2> Seismic Retrofitted? <u> No, non-compliant</u></h2>
+ <h3>Seismic Retrofitted? <u> No, non-compliant</u></h3>
 {% endif %}
  
 	{% if searched.softstory.liquefaction %}
-	<h2> Liquefaction risk? <u> Yes</u></h2>
+	<h3> Liquefaction risk? <u> Yes</u></h3>
 	{% else %}
-	<h2> Liquefaction risk? <u> No</u></h2>
+	<h3> Liquefaction risk? <u> No</u></h3>
 	{% endif %}
 
  <!-- Info mouseover about Liquifaction and Soft Story buildings --> 

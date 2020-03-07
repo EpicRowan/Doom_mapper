@@ -1,4 +1,26 @@
 
+@font-face {
+
+   font-family: 'Action';
+   src: url('/static/Action of the Time New.ttf') format('truetype');
+
+}
+
+
+h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+      font-weight: bold;
+
+}
+h2 {
+  font-family: 'Action', san-serif;
+  font-size: 60px;
+  color: white;
+
+}
+
 body {
   font-family: 'Libre Baskerville', serif;
   color: white;
@@ -10,6 +32,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 
 
 

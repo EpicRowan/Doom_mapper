@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block content %}
+
 {% block head %}
 
 
@@ -22,7 +22,8 @@
       }
 
   </style>
-
+ {% endblock %}
+{% block content %}
  <!-- App Logo --> 
 
   <center><div class="wrapper">
@@ -68,28 +69,27 @@
 
  <!-- Check boxes for toggling on and off markers and zones --> 
 
-	<center><div id="datacheckbox">
+	<center><form><div id="datacheckbox">
 		<h3><div class="btn-group-toggle" div id="datacheckbox" data-toggle="buttons">
-  <label class="btn btn-danger active">
-    <input type="checkbox" id="soft"checked autocomplete="on"> Soft Story Buildings
-  </label>
-<label class="btn btn-primary active">
-    <input type="checkbox" id="tall"checked autocomplete="on"> Tall Buildings
-  </label>
-<label class="btn btn-dark active">
-    <input type="checkbox" id="liq"checked autocomplete="on"> Liquefaction 
-  </label></h3>
-</div>
-</center>
-</div>
+              <label class="btn btn-danger active">
+                  <input type="checkbox" id="soft"checked autocomplete="on"> Soft Story Buildings
+               </label>
+              <label class="btn btn-primary active">
+                  <input type="checkbox" id="tall"checked autocomplete="on"> Tall Buildings
+              </label>
+             <label class="btn btn-dark active">
+                 <input type="checkbox" id="liq"checked autocomplete="on"> Liquefaction 
+              </label></div></h3>
+            </div></form>
+    </center>
 
 
  <!-- Google Map Javascript file and Styling--> 
 
  <div id="map">
- <script src="/static/js/mapStyles.js"></script>
- <script src="/static/js/maps.js"></script>
-  <script
+     <script src="/static/js/mapStyles.js"></script>
+     <script src="/static/js/maps.js"></script>
+     <script
     async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeNiHduiEBvQI2CnzC1dis32FDktKV4eA&callback=initMap">
   </script>
@@ -97,6 +97,6 @@
     <div class="siderbarmap">
        
 </div>
-{% endblock %}
+
 
 {% endblock %}

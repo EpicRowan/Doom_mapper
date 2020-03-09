@@ -3,7 +3,7 @@ h1 {
     color: white;
     text-shadow: 2px 2px 4px #000000;
     font-family: 'Oswald', serif;
-      font-weight: bold;
+    
 
 }
 .wrapper {
@@ -31,7 +31,7 @@ h1 {
    animation: 1s shake infinite alternate;
 }
 .cracked span:nth-child(2)  {
-  clip-path: polygon(10% 0%, 200% 0%, 80% 100%, 0% 100%);
+  clip-path: polygon(10% 0%, 300% 0%, 80% 100%, 0% 100%);
    animation: 1s shake infinite alternate;
 }
 .cracked span:nth-child(3) {
@@ -56,6 +56,8 @@ h1 {
    src: url('/static/Action of the Time New.ttf') format('truetype');
    font-family: 'Oswald';
    src: url('/static/Oswald-VariableFont_wght.ttf') format('truetype');
+   font-family: 'Rosa';
+   src: url('/static/Rosarivo-Regular.ttf') format('truetype');
 
 }
 

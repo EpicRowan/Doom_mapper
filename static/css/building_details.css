@@ -39,23 +39,23 @@ body {
 /* Mouseover help bubble */
 
 .help-tip{
-    position: absolute;
+    position: right;
     top: 18px;
     right: 18px;
     text-align: center;
-    background-color: #BCDBEA;
+    background-color: yellow;
     border-radius: 50%;
     width: 24px;
     height: 24px;
     font-size: 14px;
-    line-height: 26px;
+    /*line-height: 26px;*/
     cursor: default;
 }
 
 .help-tip:before {
     content:'?';
     font-weight: bold;
-    color:#fff;
+    color: black;
 }
 
 .help-tip:hover p{
@@ -78,7 +78,7 @@ body {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     right: -4px;
     color: #FFF;
-    font-size: 13px;
+    font-size: 20px;
     line-height: 1.4;
 }
 

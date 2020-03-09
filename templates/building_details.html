@@ -5,19 +5,48 @@
 
 {% if searched.tallbuilding %}
 
-<h2><center> Is {{ searched.tallbuilding.building.address }} Doomed? </center></h2>
-<h1><center> {{ doom}}  </center></h1>
 
-<h3>Tall Building</h3>
-<h3>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></h3>
-<h3>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }} </u></h3>
+<h2>
+	<center> Is {{ searched.tallbuilding.building.address }} Doomed? 
+	</center>
+</h2>
+<h1>
+	<center> {{ doom}}  
+	</center>
+</h1>
+<div class = "row">
+	<div class = "col-12 col-md-4 col-lg-4">
+		<div class = "card-header">
+			<table>	
+				<tr>
+					<td><h3>Tall Building</h3></td>
+				</tr>
+				<tr>
+					<td><h3>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></td><td> <div class="help-tip">
+				    <p>Liquefaction is a phenonmenon where the ground loses its strength and stability in response to shaking and behaves temporarily like a liquid. The effect on structures and buildings can be devastating
+				    </p></section></div></h3></td>
+				</tr>
+				<tr>
+					<td><h3>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }}     </u></h3></td>
+				
+				  <!-- Info mouseover about Liquifaction and Flawed Construction --> 
 
-  <!-- Info mouseover about Liquifaction and Flawed Construction --> 
+				<td><div class="help-tip">
+				    <p>In 1994, a major defect in certain steel-frame buildings was discovered when shaking from the Northridge earthquake in Los Angeles fractured critical joints in more than 60 buildings. The building code was re-written but many pre-1990's buildings still contain the flawed technique.
+				    </p></section>
+		    	</div><td></tr>
 
-<div class="help-tip">
-    <p>Liquefaction is.....
-    </p>
+		    </table>	
+		</div>
+	</div>
+	<div class = "col-12 col-md-8 col-lg-8">
+		<div class = "card-header">
+		
+		</div>
+	</div>
 </div>
+
+
 
  {% endif %}
 
@@ -27,26 +56,51 @@
 
 <h2><center> Is {{ searched.softstory.building.address }} Doomed? </center></h2>
 <h1><center> {{ doom}}  </center></h1>
+<div class = "row">
+	<div class = "col-12 col-md-4 col-lg-4">
+		<div class = "card-header">
+			<table>	
+				<tr>
+					<td>
+						<h3>This is a Soft Story building.</h3>
+					</td>
+				<tr>
+					<td>{% if searched.softstory.status == "Seismic Retrofitted" %}
+ 				<h3>Seismic Retrofitted? <u> Yes</u></h3>
+				{% else %}
+				 <h3>Seismic Retrofitted? <u> No, non-compliant</u></h3>
+					{% endif %}
+				</td>
+				<td> 
+					<div class="help-tip">
+				    <p>Liquefaction is a phenonmenon where the ground loses its strength and stability in response to shaking and behaves temporarily like a liquid. The effect on structures and buildings can be devastating
+				    </p></section></div></h3></td>
+				</tr>
+				<tr>
+					<td>
+						
+							{% if searched.softstory.liquefaction %}
+							<h3> Liquefaction risk? <u> Yes</u></h3>
+							{% else %}
+							<h3> Liquefaction risk? <u> No</u></h3>
+							{% endif %}</td>
+							 <td><div class="help-tip">
+				   <p>In 1994, a major defect in certain steel-frame buildings was discovered when shaking from the Northridge earthquake in Los Angeles fractured critical joints in more than 60 buildings. The building code was re-written but many pre-1990's buildings still contain the flawed technique.
+				    </p></section>
+		    	</div></h3></td></tr>
 
-<h3> This is a Soft Story building.</h3>
-{% if searched.softstory.status == "Seismic Retrofitted" %}
- <h3>Seismic Retrofitted? <u> Yes</u></h3>
-{% else %}
- <h3>Seismic Retrofitted? <u> No, non-compliant</u></h3>
-{% endif %}
- 
-	{% if searched.softstory.liquefaction %}
-	<h3> Liquefaction risk? <u> Yes</u></h3>
-	{% else %}
-	<h3> Liquefaction risk? <u> No</u></h3>
-	{% endif %}
+		    </table>	
+		</div>
+	</div>
+	<div class = "col-12 col-md-8 col-lg-8">
+		<div class = "card-header">
+		
+		</div>
+	</div>
+</div>
+
 
  <!-- Info mouseover about Liquifaction and Soft Story buildings --> 
-
-<div class="help-tip">
-    <p>Liquefaction is.....
-    </p>
-</div>
 
  {% endif %}
 

@@ -43,7 +43,7 @@ body {
     top: 18px;
     right: 18px;
     text-align: center;
-    background-color: yellow;
+    background-color: white;
     border-radius: 50%;
     width: 24px;
     height: 24px;
@@ -55,7 +55,7 @@ body {
 .help-tip:before {
     content:'?';
     font-weight: bold;
-    color: black;
+    color: red;
 }
 
 .help-tip:hover p{

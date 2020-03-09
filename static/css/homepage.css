@@ -95,3 +95,16 @@ body {
   font-size: 7px;
   color: white;
 }
+
+/* Style the active class (and buttons on mouse-over) */
+.btn {
+/*  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;*/
+  cursor: pointer;
+}
+.active, .btn:click {
+  background-color: #666;
+  color: white;
+}

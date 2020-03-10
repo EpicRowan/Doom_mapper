@@ -53,11 +53,11 @@ h1 {
 @font-face {
 
    font-family: 'Action';
-   src: url('/static/Action of the Time New.ttf') format('truetype');
+   src: url('/static/fonts/Action of the Time New.ttf') format('truetype');
    font-family: 'Oswald';
-   src: url('/static/Oswald-VariableFont_wght.ttf') format('truetype');
+   src: url('/static/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
    font-family: 'Rosa';
-   src: url('/static/Rosarivo-Regular.ttf') format('truetype');
+   src: url('/static/fonts/Rosarivo-Regular.ttf') format('truetype');
 
 }
 

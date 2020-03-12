@@ -22,26 +22,43 @@
 					<td><h3>This is classified as a Tall Building</h3></td>
 				</tr>
 				<tr>
-					<td><h3>Liquefaction Risk: <u> {{ searched.tallbuilding.liquefaction }} </u></td><td> <div class="help-tip">
-				    <p>Liquefaction is a phenonmenon where the ground loses its strength and stability in response to shaking and behaves temporarily like a liquid. The effect on structures and buildings can be devastating
-				    </p></section></div></h3></td>
+					<td>
+						<h3>Liquefaction Risk: 
+							<b><u> {{ searched.tallbuilding.liquefaction }} 
+							</u></b>
+				</td>
+					<td> 
+						<div class="help-tip">
+						    <p>Liquefaction is a phenonmenon where the ground loses its strength and stability in response to shaking and behaves temporarily like a liquid. The effect on structures and buildings can be devastating
+				    		</p>
+				    		</section>
+				    	</div>
+				    </h3>
+				</td>
 				</tr>
+
 				<tr>
-					<td><h3>Flawed Construction used: <u> {{ searched.tallbuilding.at_risk }}     </u></h3></td>
+					<td>
+						<h3>Flawed Construction used: 
+							<b><u> {{ searched.tallbuilding.at_risk }}     
+							</u></b>
+						</h3>
+					</td>
 				
 				  <!-- Info mouseover about Liquifaction and Flawed Construction --> 
 
-				<td><div class="help-tip">
-				    <p>In 1994, a major defect in certain steel-frame buildings was discovered when shaking from the Northridge earthquake in Los Angeles fractured critical joints in more than 60 buildings. The building code was re-written but many pre-1990's buildings still contain the flawed technique.
-				    </p></section>
-		    	</div><td></tr>
-
-		    </table>	
-		</div>
+				<td>
+					<div class="help-tip">
+					    <p>In 1994, a major defect in certain steel-frame buildings was discovered when shaking from the Northridge earthquake in Los Angeles fractured critical joints in more than 60 buildings. The building code was re-written but many pre-1990's buildings still contain the flawed technique.
+				    	</p></section>
+		    		</div>
+		    	<td>
+		    </tr>
+		 </table>	
 	</div>
+</div>
 	<div class = "col-12 col-md-8 col-lg-8">
 		<div class = "card-header">
-		
 		</div>
 	</div>
 </div>
@@ -54,8 +71,13 @@
 
 {% if searched.softstory %}
 
-<h2><center> Is {{ searched.softstory.building.address }} Doomed? </center></h2>
-<h1><center> {{ doom}}  </center></h1>
+<h2>
+	<center> Is {{ searched.softstory.building.address }} Doomed? </center>
+</h2>
+<h1>
+	<center> {{ doom}}  
+	</center>
+</h1>
 <div class = "row">
 	<div class = "col-12 col-md-8 col-lg-8">
 		<div class = "card-header">
@@ -67,9 +89,9 @@
 				</tr>
 				<tr>
 					<td>{% if searched.softstory.status == "Seismic Retrofitted" %}
- 						<h3>Seismic Retrofitted? <u> Yes</u></h3>
+ 						<h3>Seismic Retrofitted? <u><b> Yes</b></u></h3>
 						{% else %}
-				 		<h3>Seismic Retrofitted? <u> No, non-compliant</u></h3>
+				 		<h3>Seismic Retrofitted? <u><b> No, non-compliant</b></u></h3>
 						{% endif %}
 					</td>
 					<td> 
@@ -83,9 +105,9 @@
 					<td>
 					
 						{% if searched.softstory.liquefaction %}
-						<h3> Liquefaction risk? <u> Yes</u></h3>
+						<h3> Liquefaction risk? <u><b> Yes</b></u></h3>
 						{% else %}
-						<h3> Liquefaction risk? <u> No</u></h3>
+						<h3> Liquefaction risk? <u><b> No</b></u></h3>
 						{% endif %}</td>
 						 <td><div class="help-tip">
 				   <p>Liquefaction is a phenonmenon where the ground loses its strength and stability in response to shaking and behaves temporarily like a liquid. The effect on structures and buildings can be devastating.
@@ -111,8 +133,14 @@
   <input type="button" class="btn btn-lg btn-danger" onclick="location.href='/';" value="Back to Doom" />
 
 
- <h4><center> Scary Earthquake fact! </center></b>
-  <center> {{ fact }} </center> </font></h4>
+ <h4>
+ 	<center> 
+	 	Scary Earthquake fact! 
+    </center>
+    <center> 
+	   	{{ fact }} 
+    </center> 
+</h4>
 
 
 

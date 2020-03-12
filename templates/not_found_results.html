@@ -2,13 +2,26 @@
 {% block content %}
 
  <!-- If the User searches for a building not currently in either database--> 
+<center>
+	<h1> 
+		No Record of Doom! 
+	</h1>
+</center>
 
+<center>
+	<h2>
+		There are no records of {{ find_address}} being a Soft Story Building or a Skyscraper in San Francisco
+	</h2>
+</center>
 
-<center><h1> No Record of Doom! </h1></center>
-<center><h2>There are no records of {{ find_address}} being a Soft Story Building or a Skyscraper in San Francisco</h2></center>
-
-<font size="5"><b><center> Scary Earthquake fact! </center></b>
-  <center> {{ fact }} </center> </font>
+ <h4>
+ 	<center> 
+	 	Scary Earthquake fact! 
+    </center>
+    <center> 
+	   	{{ fact }} 
+    </center> 
+</h4>
 
 <input type="button" class="btn btn-lg btn-danger" onclick="location.href='/';" value="Back to Doom" />
 

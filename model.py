@@ -24,7 +24,7 @@ class Building(db.Model):
     longitude = db.Column(db.String(64), nullable=True)
     
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         """Provide helpful representation when printed."""
 
         return f"<Building ID={self.building_id} Address={self.address}>"
@@ -49,7 +49,7 @@ class SoftStory(db.Model):
     building = db.relationship('Building', backref=db.backref('softstory', uselist=False))
     
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         """Provide helpful representation when printed."""
 
         return f"<Soft Story Id={self.ss_id} Status={self.status}>"
@@ -76,7 +76,7 @@ class TallBuilding(db.Model):
     building = db.relationship('Building', backref=db.backref('tallbuilding', uselist=False))
     
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         """Provide helpful representation when printed."""
 
         return f"<Tall Building ID={self.tall_id} Liquefaction={self.liquefaction}>"
@@ -133,7 +133,7 @@ def connect_to_db(app, db_name="postgresql:///buildings"):
     db.init_app(app)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     # As a convenience, if we run this module interactively, it will
     # leave you in a state of being able to work with the database
     # directly.

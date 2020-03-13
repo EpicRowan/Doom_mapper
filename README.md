@@ -50,10 +50,15 @@ Run model.py interactively in the terminal, and create database tables:
 $ python3 -i model.py
 >>> db.create_all()
 >>> quit()
+
+```
+Run seed.py to load all of the data into the newly created and setup database
+```
+$ python3 seed.py
 ```
 Run the app from the command line.
 ```
-$ python server.py
+$ python3 server.py
 ```
 
 ## <a name="features"></a>Features
@@ -74,6 +79,8 @@ $ python server.py
 ### **Interactive Map**
 
 #### Red and blue markers indicate different types of buildings and the grey layer indicates the liquefaction zone. They can be toggled on and off. 
+
+<img src="/static/img/Toggle.gif" width="1000" height="500">
 
 ### **Browse Soft Story Buildings and Skyscrapers**
 

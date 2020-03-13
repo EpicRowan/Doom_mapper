@@ -23,4 +23,12 @@ APIs: Google Maps JavaScript, Google Maps Geocoding
 - Python 3.x
 - API key for Google Maps JavaScript and Google Maps Geocoding
 
+## <a name="features"></a>Features
+
+#### Search for an address in San Francisco to learn about the seismic risks facing it. If the building is in the database as soft story building or a skyscraper, it will return info about the liquefaction risk, any known flawed construction used, and if the building has been seismically retrofitted.
+
 ![Doom Logo](/static/img/Doom_logo.gif)
+![Results](/static/img/Results_page.png)
+
+
+

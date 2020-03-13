@@ -26,7 +26,7 @@ APIs: Google Maps JavaScript, Google Maps Geocoding
 ## <a name="features"></a>Features
 
 ### Search
-<img src="/static/img/Doom_logo.gif" width="1000" height="200">
+<img src="/static/img/Doom_logoo.gif" width="1000" height="200">
 
 #### Search for an address in San Francisco to learn about the seismic risks facing it. If the building is in the database as soft story building or a skyscraper, it will return info about the liquefaction risk, any known flawed construction used, and if the building has been seismically retrofitted.
 
@@ -45,3 +45,7 @@ APIs: Google Maps JavaScript, Google Maps Geocoding
 ### Browse Soft Story Buildings and Skyscrapers
 
 #### Mouseover the red or blue markers to see the address or name of the building and click to view the buildings information page
+
+## <a name="aboutme"></a>About the Developer
+
+ Doom Mapper was created by former teacher Rowan Shepherd, a science and dark humor enthusiast who transitioned into software engineering. This is her first fullstack project. She can be found on [LinkedIn](https://https://www.linkedin.com/in/rowan-shepherd/) and on [Github](https://github.com/EpicRowan).

@@ -9,6 +9,7 @@ This project was made at Hackbright Academy in San Francisco over four weeks in 
 ### Contents
 
 * [Tech stack](#techstack)
+* [Installation](#installation)
 * [Features](#features)
 * [About The Developer](#aboutme)
 
@@ -23,10 +24,42 @@ APIs: Google Maps JavaScript, Google Maps Geocoding
 - Python 3.x
 - API key for Google Maps JavaScript and Google Maps Geocoding
 
+### Run TravelMaps on your local computer
+
+Clone or fork repository:
+```
+$ git clone https://https://github.com/EpicRowan/Doom_mapper
+```
+Create and activate a virtual environment inside your Doom Mapper directory:
+```
+$ virtualenv env
+$ source env/bin/activate
+```
+Install dependencies:
+```
+$ pip install -r requirements.txt
+```
+Add your API key into the header scripts templates/homepage.html line 79
+
+Create database 'buildings':
+```
+$ createdb buildings
+```
+Run model.py interactively in the terminal, and create database tables:
+```
+$ python3 -i model.py
+>>> db.create_all()
+>>> quit()
+```
+Run the app from the command line.
+```
+$ python server.py
+```
+
 ## <a name="features"></a>Features
 
 ### Search
-<img src="/static/img/Doom_logoo.gif" width="1000" height="200">
+<img src="/static/img/Doom_logo.gif" width="1000" height="200">
 
 #### Search for an address in San Francisco to learn about the seismic risks facing it. If the building is in the database as soft story building or a skyscraper, it will return info about the liquefaction risk, any known flawed construction used, and if the building has been seismically retrofitted.
 

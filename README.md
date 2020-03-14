@@ -84,7 +84,11 @@ $ python3 server.py
 
 ### **Browse Soft Story Buildings and Skyscrapers**
 
-#### Mouseover the red or blue markers to see the address or name of the building and click to view the buildings information page
+#### Mouseover the red or blue markers to see the address or name of the building and click to view the buildings information page. Doom score is calculated based on the known risk factors
+
+### **Bonus Scary Earthquake facts**
+
+Want to be scared off from ever taking an elevator in San Francisco again? How about petrified from long you will be estimated to be without water when the Big One hits? Each page contains a randomly chosen scary fact from the US Geological Survey's estimations of the effects of a 7.0 quake from the Hayward fault.
 
 ## <a name="aboutme"></a>About the Developer
 

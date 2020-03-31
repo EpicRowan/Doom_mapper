@@ -6,6 +6,11 @@ The application has 93% test coverage using Python unittest.
 
 This project was made at Hackbright Academy in San Francisco over four weeks in February 2020.
 
+### Link to Deployed App
+
+http://54.190.186.251/
+
+
 ### Contents
 
 * [Tech stack](#techstack)
@@ -23,6 +28,7 @@ APIs: Google Maps JavaScript, Google Maps Geocoding
 - PostgreSQL
 - Python 3.x
 - API key for Google Maps JavaScript and Google Maps Geocoding
+
 
 ### <a name="installation"></a>Run Doom Mapper on your computer
 

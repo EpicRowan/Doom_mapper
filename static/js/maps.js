@@ -95,7 +95,9 @@ var markerGroups = {
         map: map,
       });
 
+       localStorage.setItem(softMarker);
        markerGroups["soft"].push(softMarker);
+
 
       google.maps.event.addListener(softMarker, 'click', function() {
       window.location.href = this.url;

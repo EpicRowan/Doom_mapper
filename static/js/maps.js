@@ -93,6 +93,8 @@ var markerGroups = {
           scaledSize: new google.maps.Size(10, 10)
         },
         map: map,
+
+        // Attempt to log markers in local storage 
         localStorage.setItem(softMarker);
       });
 

@@ -93,9 +93,10 @@ var markerGroups = {
           scaledSize: new google.maps.Size(10, 10)
         },
         map: map,
+        localStorage.setItem(softMarker);
       });
 
-       localStorage.setItem(softMarker);
+
        markerGroups["soft"].push(softMarker);
 
 

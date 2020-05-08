@@ -8,7 +8,7 @@ This project was made at Hackbright Academy in San Francisco over four weeks in 
 
 ### Link to Deployed App
 
-http://54.190.186.251/
+http://doommapper.com
 
 
 ### Contents

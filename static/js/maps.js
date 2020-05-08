@@ -94,7 +94,7 @@ var markerGroups = {
         },
         map: map,
 
-        // Attempt to log markers in local storage 
+        // Attempt to log soft story markers in local storage 
         localStorage.setItem(softMarker);
       });
 

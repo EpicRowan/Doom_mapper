@@ -6,10 +6,6 @@ The application has 93% test coverage using Python unittest.
 
 This project was made at Hackbright Academy in San Francisco over four weeks in February 2020.
 
-### Link to Deployed App
-
-http://doommapper.com
-
 
 ### Contents
 
